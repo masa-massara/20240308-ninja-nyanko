@@ -1,9 +1,10 @@
-import { Manual } from "./pages/Manual"
+import { OpenAIChatManual } from "./components/common/OpenAIChatManual"
+
 function App() {
   return (
     <>
       <h1>React App</h1>
-      <Manual />
+      <OpenAIChatManual />
     </>
   )
 }
