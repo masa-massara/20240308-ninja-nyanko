@@ -1,9 +1,8 @@
 import OpenAI from "openai";
-import { openAIToken } from "../secret/openAIToken";
 import { Message } from "./type";
 
 const openai = new OpenAI({
-  apiKey: openAIToken, //envのエラー直す
+  apiKey: (import.meta.env.VITE_OPENAI_API_KEY), //envのエラー直す
   dangerouslyAllowBrowser: true, //後でけす
 });
 
