@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Modal from './modal'
+import Modal from './components/common/modal'
 function App() {
   const [count, setCount] = useState(0)
 
