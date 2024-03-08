@@ -1,10 +1,12 @@
 import { useState } from 'react'
-
+import Modal from './components/common/modal'
 function App() {
   const [count, setCount] = useState(0)
 
+
   return (
     <>
+        <Modal />
       <div>
         <a href="https://vitejs.dev" target="_blank">
           
