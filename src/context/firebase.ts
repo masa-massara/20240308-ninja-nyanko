@@ -4,15 +4,25 @@ import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_API_KEY,
-  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-  databaseURL: process.env.REACT_APP_DATABASE_URL,
-  projectId: process.env.REACT_APP_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_APP_ID,
-  measurementId: process.env.REACT_APP_MEASUREMENT_ID,
-};
+    apiKey: import.meta.env.VITE_API_KEY,
+    authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+    databaseURL: import.meta.env.VITE_DATABASE_URL,
+    projectId: import.meta.env.VITE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_APP_ID,
+    measurementId: import.meta.env.VITE_MEASUREMENT_ID,
+  };
+
+// const firebaseConfig = {
+//     apiKey: "AIzaSyC0lwBga0_o4TcOMQKtr6q7invayJFIzWE",
+//     authDomain: "ninja-nyanko.firebaseapp.com",
+//     projectId: "ninja-nyanko",
+//     storageBucket: "ninja-nyanko.appspot.com",
+//     messagingSenderId: "409358751529",
+//     appId: "1:409358751529:web:1c159d44329e573babc938",
+//     measurementId: "G-HWCS87HDGS"
+//   };
 
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth();
