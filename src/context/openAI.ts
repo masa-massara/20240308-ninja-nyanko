@@ -2,8 +2,7 @@ import OpenAI from "openai";
 import { Message } from "./type";
 
 const openai = new OpenAI({
-  apiKey: (import.meta.env.VITE_OPENAI_API_KEY), //envのエラー直す
-  dangerouslyAllowBrowser: true, //後でけす
+  apiKey: (import.meta.env.VITE_OPENAI_API_KEY), 
 });
 
 export async function OpenAIChat(messages: Message[]) {
