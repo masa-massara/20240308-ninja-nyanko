@@ -11,3 +11,8 @@ export type Manual = {
 export type ResponseData = {
   manuals: Manual[];
 };
+
+export type OpenAIChatPro = {
+  storeType: string;
+  section: string;
+}

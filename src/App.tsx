@@ -1,10 +1,10 @@
-import { OpenAIChatManual } from "./components/common/OpenAIChatManual"
+import { OpenAIInputForm } from "./components/common/OpenAIInputForm"
 
 function App() {
   return (
     <>
       <h1>React App</h1>
-      <OpenAIChatManual />
+      <OpenAIInputForm />
     </>
   )
 }
