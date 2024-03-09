@@ -9,7 +9,8 @@ import Quiz from "./pages/Quiz";
 import Result from "./pages/Result";
 import SelectWorks from "./pages/SelectWorks";
 import SelectPosition from "./pages/SelectPosition";
-import TopPage from "./pages/TopPage";
+import TopPageCompany from "./pages/TopPageCompany";
+import TopPageArbeit from "./pages/TopPageArbeit";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
@@ -23,18 +24,19 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Login />} />
-            <Route path="/addposition" element={<AddPosition />} />
-            <Route path="/checkcreate" element={<CheckCreate />} />
-            <Route path="/createquiz" element={<CreateQuiz />} />
             <Route path="/detailmanager" element={<DetailManager />} />
             <Route path="/detailpart" element={<DetailPart />} />
-            <Route path="/manuallistmanager" element={<ManualListManager />} />
-            <Route path="/manuallistpart" element={<ManualListPart />} />
-            <Route path="/quiz" element={<Quiz />} />
             <Route path="/result" element={<Result />} />
-            <Route path="/selectworks" element={<SelectWorks />} />
-            <Route path="/selectposition" element={<SelectPosition />} />
-            <Route path="/toppage" element={<TopPage />} />
+            <Route path="/works" element={<SelectWorks />} />
+            <Route path="/works/position/" element={<SelectPosition />} />
+            <Route path="/works/position/addposition" element={<AddPosition />} />
+            <Route path="/works/position/addposition/checkcreate" element={<CheckCreate />} />
+            <Route path="/Company" element={<TopPageCompany />} />
+            <Route path="/Company/manuallistmanager" element={<ManualListManager />} />
+            <Route path="/Arbeit" element={<TopPageArbeit />} />
+            <Route path="/Arbeit/manuallistpart" element={<ManualListPart />} />
+            <Route path="/Arbeit/createquiz" element={<CreateQuiz />} />
+            <Route path="/Arbeit/createquiz/quiz" element={<Quiz />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/*" element={<NotFound />} />
