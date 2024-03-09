@@ -37,10 +37,16 @@ body {
 
 #root {
     width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: fit-content;
+
+    .center_center {
+        height: auto;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
 }
 
 h1 {
@@ -61,7 +67,7 @@ h1 {
 
     box-shadow: $neumorphism-shadow;
 
-    &:hover{
+    &:hover {
         box-shadow: none;
     }
 
@@ -78,7 +84,7 @@ h1 {
             transform: translateY(2px);
             box-shadow: $neumorphism-shadow-hover;
         }
-        
+
     }
 
     .defaultButton_red {
@@ -123,6 +129,7 @@ h1 {
     height: 40px;
     margin: 0 auto;
     border-radius: 20px;
+    margin: 20px auto;
     box-shadow: $neumorphism-shadow;
 
     button {
@@ -142,18 +149,18 @@ h1 {
     }
 }
 
-.button_next{
+.button_next {
     width: 180px;
     height: 63px;
     border-radius: 20px;
     box-shadow: $neumorphism-shadow;
     margin: 0 auto;
 
-    &:hover{
+    &:hover {
         box-shadow: none;
     }
 
-    .next{
+    .next {
         width: 180px;
         height: 63px;
         background-color: $color-red;
@@ -162,7 +169,7 @@ h1 {
         color: $color-white;
 
 
-        &:hover{
+        &:hover {
             transform: translateY(2px);
             box-shadow: $neumorphism-shadow-hover;
         }
@@ -243,24 +250,30 @@ h1 {
     }
 
     .middle {
+        width: 340px;
         height: 60px;
+        margin: 0 auto;
     }
 
     .large {
+        width: 340px;
         height: 360px;
+        margin: 0 auto;
     }
 
 
 }
 
 .header {
-    width: 100%;
+    width: 380px;
     height: 76px;
     border-bottom: solid 1px $color-white;
+    padding-left: 20px;
+    vertical-align: top;
+    margin-bottom: 20px;
 
     p {
         margin: 0;
-        text-align: center;
         line-height: 76px;
         font-size: 24px;
         font-weight: bold;
@@ -273,6 +286,7 @@ h1 {
     border-radius: 0 20px 20px 0;
     background-color: $color-black;
     box-shadow: $neumorphism-shadow;
+    margin: 0 0 20px 0;
 
     p {
         padding-left: 20px;
@@ -283,15 +297,14 @@ h1 {
 }
 
 .divManualParts {
-    width: 304px;
+    width: fit-content;
     height: 208px;
     padding: 8px 16px;
     border-radius: 20px;
     box-shadow: $neumorphism-shadow;
-    margin: 20px; //kesu
 
     .title {
-        width: 300px;
+        width: 280px;
         height: 45px;
         font-size: 32px;
         margin: 0 auto;
@@ -300,7 +313,7 @@ h1 {
     }
 
     .div_circle {
-        width: 300px;
+        width: 280px;
         height: 120PX;
     }
 
@@ -408,9 +421,36 @@ h1 {
 }
 
 
-.add_manual{
-    p{
+.add_manual {
+    p {
         width: 300px;
         margin: 0 auto;
     }
+}
+
+.manual_parts {
+    margin-bottom: 20px;
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+
+}
+
+.inset_redbutton {
+    width: 100%;
+    height: auto;
+    padding-top: 15px;
+    margin-top: 40px;
+
+    box-shadow: 0 8px 15px -15px $color-black inset;
+}
+
+.background_black{
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-color: $color-black;
 }
