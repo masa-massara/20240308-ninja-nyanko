@@ -1,3 +1,5 @@
+import View_add_manual_one from "./components/common/View_add_manual_first"
+import View_add_manual_second from "./components/common/View_add_manual_second"
 import View_top from "./components/common/View_top"
 import "./scss/style.scss"
 
@@ -5,7 +7,7 @@ function App() {
 
   return (
     <>
-    <View_top />
+    <View_add_manual_second />
 
 
 
