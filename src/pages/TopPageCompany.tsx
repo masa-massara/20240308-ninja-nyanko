@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const TopPage = () => {
+const TopPageCompany = () => {
   return (
     <div>
       <h2>Arbeit Manual</h2>
@@ -13,4 +13,4 @@ const TopPage = () => {
   );
 };
 
-export default TopPage;
+export default TopPageCompany;
