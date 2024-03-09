@@ -1,4 +1,4 @@
-import AddPosition from "./pages/AddPosition";
+// import AddPosition from "./pages/AddPosition";
 import CheckCreate from "./pages/CheckCreate";
 import CreateQuiz from "./pages/CreateQuiz";
 import DetailManager from "./pages/DetailManager";
@@ -29,7 +29,7 @@ function App() {
             <Route path="/result" element={<Result />} />
             <Route path="/works" element={<SelectWorks />} />
             <Route path="/works/position/" element={<SelectPosition />} />
-            <Route path="/works/position/addposition" element={<AddPosition />} />
+            {/* <Route path="/works/position/addposition" element={<AddPosition />} /> */}
             <Route path="/works/position/addposition/checkcreate" element={<CheckCreate />} />
             <Route path="/Company" element={<TopPageCompany />} />
             <Route path="/Company/manuallistmanager" element={<ManualListManager />} />
