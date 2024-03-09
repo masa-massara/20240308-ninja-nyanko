@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Button_small_red from "../components/common/Button_small_red";
 import Button_small_yellow from "../components/common/Button_small_yellow";
 import Component_add_manual from "../components/common/Component_add_manual";
@@ -32,15 +33,23 @@ const exampleObject: TasksObject[] = [
     task: "レジ周りは常に清潔に保つ。必要に応じて手指の消毒を行う。お金や商品は衛生的に扱う。",
   },
 ];
-console.log(exampleObject);
-
 
 const View_add_manual_third = () => {
+  const [GPTresponse, setGPTresponse] = useState<TasksObject[]>();
+
+  //   ポジションはuseContextで取得するように書き換えてね
+  const position = "レジ";
+
+  useEffect(() => {
+    // exampleObjectの代わりにGPTの変数を入れてね
+    setGPTresponse(exampleObject);
+  }, []);
+
   return (
     <>
       <Header />
-      <Div_position />
-      <Component_add_manual />
+      <Div_position position={position} />
+      <Component_add_manual content={GPTresponse}/>
       <Button_small_yellow />
       <div className="inset_redbutton">
         <Button_small_red clickAct={() => {}} />
