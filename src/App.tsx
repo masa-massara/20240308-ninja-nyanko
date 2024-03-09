@@ -18,7 +18,6 @@ function App() {
             <Route path="/addposition" element={<AddPosition />} />
             <Route path="/selectworks" element={<SelectWorks />} />
             <Route path="/selectposition" element={<SelectPosition />} />
-            <Route path="/toppage" element={<TopPage />} />
             <Route path="/checkcreate" element={<CheckCreate />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
