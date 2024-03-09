@@ -1,18 +1,37 @@
-import Component_add_manual from "./components/common/Component_add_manual"
-import View_add_manual_third from "./components/common/View_add_manual_third"
-import View_manual_write from "./components/common/View_manual_write"
-import View_popup from "./components/common/View_popup"
-import "./scss/style.scss"
+import AddPosition from "./pages/AddPosition";
+import CheckCreate from "./pages/CheckCreate";
+import SelectWorks from "./pages/SelectWorks";
+import SelectPosition from "./pages/SelectPosition";
+import TopPage from "./pages/TopPage";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 
 function App() {
-
   return (
-  
-  
-    <View_manual_write />
-    
-    
-  )
+    <>
+      <div>
+        {/* 各ページへのルート設定 */}
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Login />}/>
+            <Route path="/addposition" element={<AddPosition />} />
+            <Route path="/selectworks" element={<SelectWorks />} />
+            <Route path="/selectposition" element={<SelectPosition />} />
+            <Route path="/toppage" element={<TopPage />} />
+            <Route path="/checkcreate" element={<CheckCreate />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+
+      <div>
+        <a href="https://vitejs.dev" target="_blank"></a>
+        <a href="https://react.dev" target="_blank"></a>
+      </div>
+    </>
+  );
 }
 
-export default App
+export default App;
