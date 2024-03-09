@@ -1,10 +1,12 @@
 
 const Voice = () => {
+  const SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
+  const recognition = new SpeechRecognition();
+  
   const handleVoice = () => {
-    const SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
-    const recognition = new SpeechRecognition();
-
-    recognition.interimResults = true;
+    recognition.lang = 'ja-JP'; // 言語を日本語に設定
+    recognition.interimResults = true; // 途中結果を取得するかどうか
+    recognition.continuous = true; // 連続的に音声を取得するかどうか
 
     recognition.onresult = (event) => {
       console.log(event.results[0][0].transcript); // 実際の音声テキスト
@@ -18,9 +20,14 @@ const Voice = () => {
     recognition.start();
   };
 
+  const handleVoiceStop = () => {
+    recognition.stop();
+  };
+
   return (
     <div>
-      <button onClick={handleVoice}>Start Voice Recognition</button>
+      <button onClick={handleVoice}>Start</button>
+      <button onClick={handleVoiceStop}>stop</button>
     </div>
   );
 }
