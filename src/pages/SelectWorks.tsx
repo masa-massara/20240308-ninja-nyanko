@@ -10,8 +10,8 @@ const SelectWorks = () => {
         works="業種"
         worksname={industry}
       />
-      <button>
-        <Link to="/selectposition">次へ</Link>
+      <button className="button_next">
+f        <Link to="/selectposition">次へ</Link>
       </button>
     </div>
   );
