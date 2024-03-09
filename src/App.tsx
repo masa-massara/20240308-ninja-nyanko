@@ -3,24 +3,11 @@ import CheckCreate from "./pages/CheckCreate";
 import SelectWorks from "./pages/SelectWorks";
 import SelectPosition from "./pages/SelectPosition";
 import TopPage from "./pages/TopPage";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes,  } from "react-router-dom";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-import { useContext } from "react";
-import { AuthContext } from "./context/AuthContext";
 
 function App() {
-  const { currentUser } = useContext(AuthContext);
-
-  const ProtectedRoute = ({ children }) => {
-    if (!currentUser) {
-      return <Navigate to="/login" />;
-    }
-    console.log("ログインされてないです");
-    console.log(currentUser);
-
-    return children;
-  };
   return (
     <>
       <div>
