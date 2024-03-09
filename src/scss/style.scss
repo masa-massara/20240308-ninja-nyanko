@@ -316,7 +316,8 @@ h1 {
 
 .divManualParts {
     width: fit-content;
-    height: 208px;
+    height: fit-content;
+    max-height: 208px;
     padding: 8px 16px;
     border-radius: 20px;
     box-shadow: $neumorphism-shadow;
@@ -332,7 +333,8 @@ h1 {
 
     .div_circle {
         width: 280px;
-        height: 120PX;
+        height: fit-content;
+        max-height: 120px;
     }
 
     .circle {
