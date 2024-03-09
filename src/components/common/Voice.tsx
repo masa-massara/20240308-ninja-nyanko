@@ -1,7 +1,9 @@
 
+
 const Voice = () => {
-  const SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
-  const recognition = new SpeechRecognition();
+  // コメントで次の行を無視するようにする
+  /* eslint @typescript-eslint/no-explicit-any: 0 */
+  const recognition = new (window as any).webkitSpeechRecognition() || new (window as any).SpeechRecognition;
   
   const handleVoice = () => {
     recognition.lang = 'ja-JP'; // 言語を日本語に設定
