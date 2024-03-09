@@ -4,9 +4,11 @@ import Voice from "./Voice";
 
 export const OpenAxios = () => {
   const [msg, setMsg] = useState("");
+  // apiUrlを定義
   const apiUrl =
     "https://two40308ninjyanya-back-py.onrender.com/api/openai_chat";
 
+  // megが変更されたら実行
   useEffect(() => {
     if (msg !== "") {
       axios
