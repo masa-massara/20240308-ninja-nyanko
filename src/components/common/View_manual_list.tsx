@@ -1,6 +1,5 @@
 import Button_small_blue from "./Button_small_blue"
 import DefaultButton_red from "./DefaultButton_red"
-import Div_manual_list_parts from "./Div_manual_list_parts"
 import Header from "./Header"
 import Tabs_manual_list from "./Tabs_manual_list"
 
