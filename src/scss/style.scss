@@ -14,7 +14,9 @@ $neumorphism-shadow: 10px 10px 20px 0 $color-gray-opacity, -10px -10px 20px 0 $c
 $neumorphism-shadow-inset: 4px 4px 8px 0 $color-gray-opacity, -4px -4px 8px 0 $color-white-opacity;
 $neumorphism-shadow-hover: inset 4px 4px 8px 0 $color-gray-opacity, -4px -4px 8px 0 $color-white-opacity;
 
-
+.masaya {
+    background-color: #dd5663;
+}
 
 html {
     box-sizing: border-box;
@@ -314,7 +316,8 @@ h1 {
 
 .divManualParts {
     width: fit-content;
-    height: 208px;
+    height: fit-content;
+    max-height: 208px;
     padding: 8px 16px;
     border-radius: 20px;
     box-shadow: $neumorphism-shadow;
@@ -330,7 +333,8 @@ h1 {
 
     .div_circle {
         width: 280px;
-        height: 120PX;
+        height: fit-content;
+        max-height: 120px;
     }
 
     .circle {
@@ -345,14 +349,15 @@ h1 {
     a {
         width: fit-content;
 
-        &:hover{
+        &:hover {
             color: $color-yellow;
         }
+
         p {
             width: fit-content;
             border-bottom: solid 1px $color-black;
 
-            &:hover{
+            &:hover {
                 border-bottom: solid 1px $color-yellow;
             }
         }
@@ -379,7 +384,7 @@ h1 {
         background-color: $color-red;
     }
 
-    .button_edit{
+    .button_edit {
         background-color: $color-blue;
     }
 }
@@ -526,7 +531,7 @@ label:hover {
 .header_title {
     width: 400px;
     display: flex;
-    border: solid 1px $color-white;
+    border-bottom: solid 1px $color-white;
     align-items: center;
     margin-bottom: 20px;
 
@@ -540,3 +545,41 @@ label:hover {
     }
 }
 
+.div_manual_list {
+    margin-bottom: 20px;
+    display: flex;
+
+    .buttons {
+        margin: auto;
+    }
+}
+
+.react-tabs {
+    -webkit-tap-highlight-color: transparent;
+
+    .react-tabs__tab-list {
+        padding: 0;
+        display: flex;
+        align-items: end;
+        list-style: none;
+        white-space: nowrap;
+        overflow: scroll;
+
+        .react-tabs__tab {
+            height: fit-content;
+            padding: 10px 40px;
+            font-size: 24px;
+            font-weight: bold;
+            border: solid 1px $color-gray-opacity;
+            border-radius: 20px 20px 0 0;
+            margin-top: 40px;
+        }
+
+        .react-tabs__tab--selected{
+            padding: 25px 45px;
+            background-color: $color-black;
+            color: $color-white;
+            border-radius: 20px 20px 0 0;
+        }
+    }
+}

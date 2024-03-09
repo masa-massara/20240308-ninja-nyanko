@@ -1,4 +1,5 @@
 import Button_delete from "./Button_delete"
+import Button_edit from "./Button_edit"
 
 const Div_manual_list_parts = () => {
     return (
@@ -11,6 +12,7 @@ const Div_manual_list_parts = () => {
                 <a><p>続きを見る</p></a>
             </div>
             <div className="buttons">
+                <Button_edit />
                 <Button_delete />
             </div>
         </div>
