@@ -1,7 +1,5 @@
 const CreateQuiz = () => {
-  return (
-    <div>CreateQuiz</div>
-  )
-}
+  return <div>CreateQuiz</div>;
+};
 
-export default CreateQuiz
+export default CreateQuiz;

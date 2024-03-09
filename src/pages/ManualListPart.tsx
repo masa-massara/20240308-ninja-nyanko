@@ -1,7 +1,5 @@
 const ManualListPart = () => {
-  return (
-    <div>ManualListPart</div>
-  )
-}
+  return <div>ManualListPart</div>;
+};
 
-export default ManualListPart
+export default ManualListPart;

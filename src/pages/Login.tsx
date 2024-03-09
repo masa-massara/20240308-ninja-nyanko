@@ -4,6 +4,8 @@ import { auth } from "../context/firebase";
 import { Link } from "react-router-dom";
 
 const Login = () => {
+
+
   const [err, setErr] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -37,6 +39,7 @@ const Login = () => {
       </div>
     </div>
   );
+
 };
 
 export default Login;

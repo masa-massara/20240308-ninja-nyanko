@@ -1,7 +1,5 @@
 const DetailManager = () => {
-  return (
-    <div>DetailManager</div>
-  )
-}
+  return <div>DetailManager</div>;
+};
 
-export default DetailManager
+export default DetailManager;
