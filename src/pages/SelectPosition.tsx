@@ -13,7 +13,7 @@ const SelectPosition = () => {
         index={2}
         works="ポジション"
         worksname={position}
-        link="/works/manual/"
+        link="/works/position/addposition"
       />
     </div>
   );
