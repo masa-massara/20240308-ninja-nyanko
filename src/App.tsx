@@ -1,12 +1,18 @@
 import { useState } from 'react'
-import Modal from './components/common/modal'
+import CreateMenu from './components/company/CreateMenu'
+import CheckModal from './components/company/CheckModal'
+import DetailManual from './components/common/DetailManual'
+import CreateQuiz from './components/staff/CreateQuiz'
 function App() {
   const [count, setCount] = useState(0)
-
-
+  const industry = [ "飲食店", "サービス業", "小売業", "製造業", "IT業" ]
+  const position = [ "店長", "ホールスタッフ", "キッチンスタッフ", "サービススタッフ", "その他"]
   return (
     <>
-        <Modal />
+        <CreateMenu contents="店名を入力" index={1} works="業種" worksname={industry}/>
+        <CheckModal position="店長"/>
+        <DetailManual title="タイトル"  description='詳細'/>
+        <CreateQuiz stage={position}/>
       <div>
         <a href="https://vitejs.dev" target="_blank">
           
