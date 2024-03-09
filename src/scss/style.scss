@@ -526,7 +526,7 @@ label:hover {
 .header_title {
     width: 400px;
     display: flex;
-    border: solid 1px $color-white;
+    border-bottom: solid 1px $color-white;
     align-items: center;
     margin-bottom: 20px;
 
@@ -537,6 +537,14 @@ label:hover {
 
     .button_small {
         margin-right: 20px;
+    }
+}
+
+.div_manual_list{
+    display: flex;
+
+    .buttons{
+        
     }
 }
 
