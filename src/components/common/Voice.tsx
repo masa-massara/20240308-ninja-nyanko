@@ -1,4 +1,5 @@
-
+import Mic from "../../images/Mic.svg";
+import Stop from "../../images/Stop.svg";
 
 interface ISpeechRecognitionEvent {
   isTrusted?: boolean;
@@ -46,12 +47,17 @@ const Voice = () => {
 
   const handleVoiceStop = () => {
     recognition.stop();
+
   };
 
   return (
     <div>
-      <button onClick={handleVoice}>Start</button>
-      <button onClick={handleVoiceStop}>stop</button>
+      <button onClick={handleVoice}>
+        <img src={Mic} alt="マイクアイコン" />
+      </button>
+      <button onClick={handleVoiceStop}>
+        <img src={Stop} alt="ストップアイコン" />
+      </button>
     </div>
   );
 };
