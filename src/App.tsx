@@ -16,8 +16,6 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Login />} />
-
-
             <Route path="/selectworks" element={<SelectWorks />} />
             <Route path="/selectposition" element={<SelectPosition />} />
             <Route path="/checkcreate" element={<CheckCreate />} />
@@ -28,11 +26,6 @@ function App() {
             <Route path="/*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
-      </div>
-
-      <div>
-        <a href="https://vitejs.dev" target="_blank"></a>
-        <a href="https://react.dev" target="_blank"></a>
       </div>
     </>
   );
