@@ -6,7 +6,7 @@ const View_manual_write = () => {
     <div>
       <Textarea_input_middle />
       <Textarea_input_large />
-      <
+      
     </div>
   )
 }
