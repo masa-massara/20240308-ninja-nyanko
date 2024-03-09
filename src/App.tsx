@@ -3,18 +3,31 @@ import CheckCreate from "./pages/CheckCreate";
 import SelectWorks from "./pages/SelectWorks";
 import SelectPosition from "./pages/SelectPosition";
 import TopPage from "./pages/TopPage";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import { useContext } from "react";
+import { AuthContext } from "./context/AuthContext";
 
 function App() {
+  const { currentUser } = useContext(AuthContext);
+
+  const ProtectedRoute = ({ children }) => {
+    if (!currentUser) {
+      return <Navigate to="/login" />;
+    }
+    console.log("ログインされてないです");
+    console.log(currentUser);
+
+    return children;
+  };
   return (
     <>
       <div>
         {/* 各ページへのルート設定 */}
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Login />}/>
+            <Route path="/" element={<Login />} />
             <Route path="/addposition" element={<AddPosition />} />
             <Route path="/selectworks" element={<SelectWorks />} />
             <Route path="/selectposition" element={<SelectPosition />} />
@@ -22,6 +35,8 @@ function App() {
             <Route path="/checkcreate" element={<CheckCreate />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/toppagecompany" element={<TopPage />} />
+            <Route path="/toppagearbeit" element={<div>アルバイト</div>} />
           </Routes>
         </BrowserRouter>
       </div>
