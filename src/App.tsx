@@ -15,13 +15,7 @@ function App() {
     <>
       
         <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/selectworks">業種選択</Link>
-              </li>
-            </ul>
-          </nav>
+          
 
           {/* 各ページへのルート設定 */}
           <BrowserRouter>
