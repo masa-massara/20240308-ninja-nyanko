@@ -22,7 +22,7 @@ function App() {
         {/* 各ページへのルート設定 */}
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Login />}/>
+            <Route path="/" element={<Login />} />
             <Route path="/addposition" element={<AddPosition />} />
             <Route path="/checkcreate" element={<CheckCreate />} />
             <Route path="/createquiz" element={<CreateQuiz />} />
@@ -35,7 +35,6 @@ function App() {
             <Route path="/selectworks" element={<SelectWorks />} />
             <Route path="/selectposition" element={<SelectPosition />} />
             <Route path="/toppage" element={<TopPage />} />
-            
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/*" element={<NotFound />} />
