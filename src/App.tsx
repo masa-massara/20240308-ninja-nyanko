@@ -2,10 +2,12 @@ import AddPosition from "./pages/AddPosition";
 import CheckCreate from "./pages/CheckCreate";
 import SelectWorks from "./pages/SelectWorks";
 import SelectPosition from "./pages/SelectPosition";
-import { BrowserRouter, Route, Routes,  } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
+import TopPageArbeit from "./pages/TopPageArbeit";
+import TopPageCompany from "./pages/TopPageCompany";
 
 function App() {
   return (
@@ -21,9 +23,9 @@ function App() {
             <Route path="/checkcreate" element={<CheckCreate />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/toppagearbeit" element={<div>アルバイト</div>} />
+            <Route path="/arbeit" element={<TopPageArbeit />} />
+            <Route path="/company" element={<TopPageCompany />} />
             <Route path="/*" element={<NotFound />} />
-
           </Routes>
         </BrowserRouter>
       </div>
