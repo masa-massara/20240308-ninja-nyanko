@@ -14,8 +14,8 @@ const CreateMenu: FC<Props> = ({ worksname, index, works, link }) => {
         <p>{works}を選択してください</p>
         <div className="divSelect">
           <select name="works" className="select_middle">
-            {worksname.map((work) => {
-              return <option value={work}>{work}</option>;
+            {worksname.map((position) => {
+              return <option value={position}>{position}</option>;
             })}
           </select>
         </div>

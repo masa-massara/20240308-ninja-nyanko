@@ -1,4 +1,3 @@
-import AddPosition from "./pages/AddPosition";
 import CheckCreate from "./pages/CheckCreate";
 import SelectWorks from "./pages/SelectWorks";
 import SelectPosition from "./pages/SelectPosition";
@@ -17,7 +16,8 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Login />} />
-            <Route path="/addposition" element={<AddPosition />} />
+
+
             <Route path="/selectworks" element={<SelectWorks />} />
             <Route path="/selectposition" element={<SelectPosition />} />
             <Route path="/checkcreate" element={<CheckCreate />} />
