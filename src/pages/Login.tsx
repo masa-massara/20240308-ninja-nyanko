@@ -35,9 +35,9 @@ const Login = () => {
       const userInfo = docSnap.data();
 
       if (userInfo.position == "company") {
-        navigate("/toppagecompany");
+        navigate("/company");
       } else {
-        navigate("/toppagearbeit");
+        navigate("/arbeit");
       }
     } catch (error) {
       setErr(true);
