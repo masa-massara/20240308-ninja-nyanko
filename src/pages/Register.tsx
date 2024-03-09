@@ -15,8 +15,9 @@ const Register = () => {
     const username = formData.get("username") as string;
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
+    const position = formData.get("position-select-button") as string;
     console.log(username);
-    
+    console.log(position);
 
     try {
       const res = await createUserWithEmailAndPassword(auth, email, password);
@@ -31,6 +32,7 @@ const Register = () => {
         uid: res.user.uid,
         displayName: username,
         email,
+        position,
       });
 
       navigate("/");
@@ -49,6 +51,19 @@ const Register = () => {
           <input name="username" type="text" placeholder="Username" />
           <input name="email" type="email" placeholder="Email" />
           <input name="password" type="password" placeholder="Password" />
+          <p>あなたの役職は？</p>
+          <input
+            type="radio"
+            name="position-select-button"
+            value="company"
+            checked
+          ></input><label>社員</label>
+          <input
+            type="radio"
+            name="position-select-button"
+            value="arbeit"
+          ></input><label>アルバイト</label>
+
           <button>Sign up</button>
           {err && <span>エラーが発生しました</span>}
         </form>
