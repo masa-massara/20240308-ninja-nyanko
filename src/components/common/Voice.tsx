@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Mic from "../../images/Mic.svg";
+import { ReactComponent as Mic } from "../../images/Mic.svg";
 import Stop from "../../images/Stop.svg";
 
 interface ISpeechRecognitionEvent {
