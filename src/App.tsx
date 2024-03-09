@@ -21,7 +21,6 @@ function App() {
             <Route path="/checkcreate" element={<CheckCreate />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/toppagecompany" element={<TopPage />} />
             <Route path="/toppagearbeit" element={<div>アルバイト</div>} />
             <Route path="/*" element={<NotFound />} />
 
