@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, db } from "../context/firebase";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Voice from "../components/common/Voice";
 
 const Register = () => {
   const [err, setErr] = useState(false);
@@ -35,7 +36,22 @@ const Register = () => {
         position,
       });
 
-      navigate("/");
+      const userId = res.user.uid;
+
+      const docRef = doc(db, "users", userId);
+      const docSnap = await getDoc(docRef);
+
+      if (!docSnap.exists()) {
+        return;
+      }
+
+      const userInfo = docSnap.data();
+
+      if (userInfo.position == "company") {
+        navigate("/company");
+      } else {
+        navigate("/arbeit");
+      }
     } catch (error) {
       console.error(error);
       setErr(true);
@@ -57,12 +73,14 @@ const Register = () => {
             name="position-select-button"
             value="company"
             checked
-          ></input><label>社員</label>
+          ></input>
+          <label>社員</label>
           <input
             type="radio"
             name="position-select-button"
             value="arbeit"
-          ></input><label>アルバイト</label>
+          ></input>
+          <label>アルバイト</label>
 
           <button>Sign up</button>
           {err && <span>エラーが発生しました</span>}
@@ -73,6 +91,7 @@ const Register = () => {
             <Link to="/login">ログイン</Link>
           </span>
         </p>
+        <Voice></Voice>
       </div>
     </div>
   );
