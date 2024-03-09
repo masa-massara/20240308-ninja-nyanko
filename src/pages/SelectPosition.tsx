@@ -10,10 +10,10 @@ const SelectPosition = () => {
   return (
     <div>
       <CreateMenu
-        contents="店名を入力"
         index={2}
         works="ポジション"
         worksname={position}
+        link="/works/position/addposition"
       />
     </div>
   );

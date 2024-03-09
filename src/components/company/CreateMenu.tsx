@@ -1,26 +1,39 @@
-import { FC } from "react"
-import Button from "../common/Button"
+import { FC } from "react";
+import { Link } from "react-router-dom";
 type Props = {
-    worksname: string[],
-    contents: string,
-    index: number,
-    works: string
-}
-const CreateMenu:FC<Props> = ({worksname,contents,index,works}) => {
+  worksname: string[];
+  link: string;
+  index: number;
+  works: string;
+};
+const CreateMenu: FC<Props> = ({ worksname, index, works, link }) => {
   return (
-    <div>
+    <div className="center_center">
+      <div className="add_manual">
         <h1>マニュアル作成({index}/3)</h1>
         <p>{works}を選択してください</p>
-        <select name="works">
+        <div className="divSelect">
+          <select name="works" className="select_middle">
             {worksname.map((work) => {
-                return <option value={work}>{work}</option>
+              return <option value={work}>{work}</option>;
             })}
-        </select>
-        <input type="text" placeholder={contents}/>
-        <Button></Button>
+          </select>
+        </div>
+
+        <div className="textarea_input">
+          <form className="form_input">
+            <input type="text" className="small" placeholder="入力欄"></input>
+          </form>
+        </div>
+
+        <div className="button_next">
+          <button className="next">
+            <Link to={link}>次へ</Link>
+          </button>
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default CreateMenu
-
+export default CreateMenu;

@@ -3,7 +3,7 @@ const Button_next = () => {
     <div className="button_next">
       <button className="next">次へ</button>
     </div>
-  )
-}
+  );
+};
 
-export default Button_next
+export default Button_next;

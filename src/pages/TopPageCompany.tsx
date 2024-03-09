@@ -4,7 +4,7 @@ const TopPageCompany = () => {
   return (
     <div>
       <h2>Arbeit Manual</h2>
-      <button>マニュアルを閲覧</button>
+
       <button>
         <Link to="/selectworks"> マニュアルを作成</Link>
       </button>
