@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Voice from "./Voice";
 
 export const OpenAxios = () => {
   const [msg, setMsg] = useState("");
@@ -32,6 +33,7 @@ export const OpenAxios = () => {
   return (
     <div>
       <p>home page.</p>
+      <Voice></Voice>
       <button onClick={() => setMsg("Hello nomurabbit")}>Click me</button>
     </div>
   );

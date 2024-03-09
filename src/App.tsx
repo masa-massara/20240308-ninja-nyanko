@@ -1,11 +1,21 @@
 import AddPosition from "./pages/AddPosition";
 import CheckCreate from "./pages/CheckCreate";
+import CreateQuiz from "./pages/CreateQuiz";
+import DetailManager from "./pages/DetailManager";
+import DetailPart from "./pages/DetailPart";
+import ManualListManager from "./pages/ManualListManager";
+import ManualListPart from "./pages/ManualListPart";
+import Quiz from "./pages/Quiz";
+import Result from "./pages/Result";
 import SelectWorks from "./pages/SelectWorks";
 import SelectPosition from "./pages/SelectPosition";
+
 import TopPage from "./pages/TopPage";
 import { BrowserRouter, Route, Routes,  } from "react-router-dom";
+
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -24,6 +34,8 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/toppagecompany" element={<TopPage />} />
             <Route path="/toppagearbeit" element={<div>アルバイト</div>} />
+            <Route path="/*" element={<NotFound />} />
+
           </Routes>
         </BrowserRouter>
       </div>
