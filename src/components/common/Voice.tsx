@@ -1,4 +1,14 @@
-
+interface ISpeechRecognitionEvent {
+  isTrusted?: boolean;
+  results: {
+    isFinal: boolean;
+    [key: number]:
+      | undefined
+      | {
+          transcript: string;
+        };
+  }[];
+}
 
 const Voice = () => {
   // コメントで次の行を無視するようにする
@@ -10,13 +20,21 @@ const Voice = () => {
     recognition.interimResults = true; // 途中結果を取得するかどうか
     recognition.continuous = true; // 連続的に音声を取得するかどうか
 
-    recognition.onresult = (event) => {
-      console.log(event.results[0][0].transcript); // 実際の音声テキスト
+    recognition.onresult = (event: ISpeechRecognitionEvent) => {
+      // あればtrueなければfalse
+      if (event.results[0] && event.results[0][0]){
+        console.log(event.results[0][0].transcript); // 実際の音声テキスト
+        // !event.results[0][0]の時
+      } else if (event.results[0] && !event.results[0][0]) {
+        console.log("event.results[0][0]がない")
+      } else {
+        console.log("何もない")
+      }
       console.log(event.results[0].isFinal); // 発言が終了したかどうか
     };
 
-    recognition.onerror = (event) => {
-      console.error('Speech recognition error', event.error); // エラーハンドリング
+    recognition.onerror = () => {
+      console.error('Speech recognition error'); // エラーハンドリング
     }
 
     recognition.start();
