@@ -4,6 +4,7 @@ import { auth, db } from "../context/firebase";
 import { doc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Voice from "../components/common/Voice";
 
 const Register = () => {
   const [err, setErr] = useState(false);
@@ -58,6 +59,7 @@ const Register = () => {
             <Link to="/login">ログイン</Link>
           </span>
         </p>
+        <Voice></Voice>
       </div>
     </div>
   );
