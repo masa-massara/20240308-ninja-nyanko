@@ -1,7 +1,5 @@
 const ManualListManager = () => {
-  return (
-    <div>ManualList_Manager</div>
-  )
-}
+  return <div>ManualList_Manager</div>;
+};
 
-export default ManualListManager
+export default ManualListManager;

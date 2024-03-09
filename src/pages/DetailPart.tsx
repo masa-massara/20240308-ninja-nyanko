@@ -1,7 +1,5 @@
 const DetailPart = () => {
-  return (
-    <div>Detail_Part</div>
-  )
-}
+  return <div>Detail_Part</div>;
+};
 
-export default DetailPart
+export default DetailPart;
