@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react';
-import { OpenAIChat } from "../../context/openAI";
+import { OpenAIChat } from "../../context/openAI.server";
 import { Manual, OpenAIChatPro } from "../../context/type";
 
 export function OpenAIChatManual(props: OpenAIChatPro) {
