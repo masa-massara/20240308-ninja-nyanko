@@ -342,6 +342,22 @@ h1 {
 
     }
 
+    a {
+        width: fit-content;
+
+        &:hover{
+            color: $color-yellow;
+        }
+        p {
+            width: fit-content;
+            border-bottom: solid 1px $color-black;
+
+            &:hover{
+                border-bottom: solid 1px $color-yellow;
+            }
+        }
+    }
+
 }
 
 .div_button_smallsmall {
@@ -361,6 +377,10 @@ h1 {
 
     .button_delete {
         background-color: $color-red;
+    }
+
+    .button_edit{
+        background-color: $color-blue;
     }
 }
 
@@ -486,3 +506,45 @@ label {
 label:hover {
     opacity: 0.8;
 }
+
+.div_img_add_manual {
+    width: 320px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .img_add_manual {
+        width: 200px;
+        max-width: 250px;
+        height: auto;
+        background-color: gray;
+    }
+
+
+}
+
+.header_title {
+    width: 400px;
+    display: flex;
+    border-bottom: solid 1px $color-white;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .header {
+        margin: 0;
+        border: none;
+    }
+
+    .button_small {
+        margin-right: 20px;
+    }
+}
+
+.div_manual_list{
+    display: flex;
+
+    .buttons{
+        
+    }
+}
+
