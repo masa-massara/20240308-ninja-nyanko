@@ -9,6 +9,8 @@ import NotFound from "./pages/NotFound";
 import TopPageArbeit from "./pages/TopPageArbeit";
 import TopPageCompany from "./pages/TopPageCompany";
 import CreateQuiz from "./pages/SelectQuiz";
+import ResultList from "./pages/ResultList";
+import ManualListCompany from "./pages/ManualListCompany";
 function App() {
   return (
     <>
@@ -29,6 +31,8 @@ function App() {
             <Route path="/arbeit" element={<TopPageArbeit />} />
             <Route path="/arbeit/selectquiz" element={<CreateQuiz />} />
             <Route path="/company" element={<TopPageCompany />} />
+            <Route path="/company/resultlist" element={<ResultList />} />
+            <Route path="/company/manual" element={<ManualListCompany />} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
