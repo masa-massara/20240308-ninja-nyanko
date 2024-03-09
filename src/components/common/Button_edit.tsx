@@ -1,4 +1,4 @@
-const Button_delete = () => {
+const Button_edit = () => {
   return (
     <div className="div_button_smallsmall">
       <button className="button_edit">編集</button>
@@ -6,4 +6,4 @@ const Button_delete = () => {
   )
 }
 
-export default Button_delete
+export default Button_edit
