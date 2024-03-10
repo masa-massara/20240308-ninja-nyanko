@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Mic from "../../images/Mic.svg";
-import Stop from "../../images/Stop.svg";
+import Mic from "../../images/Mic.svg?react";
+import Stop from "../../images/Stop.svg?react";
 
 interface ISpeechRecognitionEvent {
   isTrusted?: boolean;
@@ -56,9 +56,7 @@ const Voice = () => {
 
   return (
     <div>
-      <button onClick={handleVoice}>
-        <img src={isStop ? Stop : Mic} alt="mic" />
-      </button>
+      <button onClick={handleVoice}>{isStop ? <Stop /> : <Mic />}</button>
       <p>{transcript}</p>
     </div>
   );
