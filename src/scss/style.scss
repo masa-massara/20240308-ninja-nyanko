@@ -6,6 +6,7 @@ $color-blue: #6fbec8;
 $color-blue-shadow: #096874;
 $color-black: #2a2b2e;
 $color-black-light: #43454e;
+$color-black-opacity:rgba(42,43,46,0.58);
 $color-gray: #ebebee;
 $color-gray-opacity: rgba(141, 141, 162, 0.58);
 $color-white: #ffffff;
@@ -49,6 +50,10 @@ body {
         align-items: center;
     }
 
+}
+
+.divRelative{
+    position: relative;
 }
 
 h1 {
@@ -389,7 +394,7 @@ h1 {
     }
 }
 
-.background_popip {
+.background_popup {
     margin-top: 20px; //kesu
     width: 370px;
     height: 180px;
@@ -484,12 +489,15 @@ h1 {
 }
 
 .background_black {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100vw;
     height: 100vh;
     align-items: center;
     display: flex;
     justify-content: center;
-    background-color: $color-black;
+    background-color: $color-black-opacity;
 }
 
 .input_file {

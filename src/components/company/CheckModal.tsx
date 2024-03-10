@@ -1,45 +1,51 @@
 import { FC, useState } from "react";
+// ]]import { useNavigate } from "react-router-dom";
 type Props = {
-  position: string;
+  contents: string;
+  handleCloseModal:() => void;
 };
-const CheckModal: FC<Props> = ({ position }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+const CheckModal: FC<Props> = ({ contents,handleCloseModal }) => {
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
+  // // const navigate = useNavigate();  const handleCloseModal = () => {
+  //   setIsModalOpen(false);
+  // };
 
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-  };
-
+  // const handleOpenModal = () => {
+  //   setIsModalOpen(true);
+  // };
+  
   let modal;
-  if (isModalOpen) {
+
     modal = (
-      <div className="modal">
-        <p>{position}のマニュアルを作成しますか</p>
-        <button
-          className="modal-close-btn"
-          onClick={() => {
-            handleCloseModal();
-          }}
-        >
-          いいえ
-        </button>
-        <button>はい</button>
+      <div className="background_black">
+        <div className="background_popup">
+          <p>{contents}</p>
+          <div className="display_yesno">
+            <div className="div_yesno_button">
+              <button
+                className="button_no"
+                onClick={handleCloseModal}
+              >
+                いいえ
+              </button>
+            </div>
+            <div className="div_yesno_button">
+              <button className="button_yes">はい</button>
+            </div>
+          </div>
+        </div>
       </div>
     );
-  }
   return (
-    <div className="modal">
-      <div
+    <div>
+      {/* <div
         className="modal-open-btn"
         onClick={() => {
           handleOpenModal();
         }}
       >
         開く
-      </div>
+      </div> */}
       {modal}
     </div>
   );
