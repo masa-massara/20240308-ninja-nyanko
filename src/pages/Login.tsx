@@ -50,7 +50,7 @@ const Login = () => {
           <div className="formWrapper">
             <h1 className="title">ログイン</h1>
 
-           
+
             <div className="textarea_input">
               <form onSubmit={handleSubmit} className="form_input">
                 <input type="email" placeholder="Email" name="email" className="small" />
@@ -59,7 +59,7 @@ const Login = () => {
                 {err && <span className="error_message">エラーが発生しました</span>}
               </form>
             </div>
-            <p className="p_white">アカウントを持っていませんか？ <Link to={"/register"} className="link_decoration">登録</Link></p>
+            <p className="p_white">アカウントを持っていませんか？&ensp;<Link to={"/register"} className="link_decoration">登録</Link></p>
           </div>
         </div>
       </div>

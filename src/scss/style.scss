@@ -11,8 +11,8 @@ $color-gray-opacity: rgba(141, 141, 162, 0.58);
 $color-white: #ffffff;
 $color-white-opacity: rgba(255, 255, 255, 0.8);
 $neumorphism-shadow: 10px 10px 20px 0 $color-gray-opacity, -10px -10px 20px 0 $color-white-opacity;
-$neumorphism-shadow-inset: 4px 4px 8px 0 $color-gray-opacity, -4px -4px 8px 0 $color-white-opacity;
-$neumorphism-shadow-hover: inset 4px 4px 8px 0 $color-gray-opacity, inset -4px -4px 8px 0 $color-white-opacity;
+$neumorphism-shadow-inset: 4px 4px 8px 0 $color-gray-opacity, -4px -4px 8px 0 $color-white-opacity inset;
+$neumorphism-shadow-hover: inset 4px 4px 8px 0 $color-gray-opacity, -4px -4px 8px 0 $color-white-opacity ;
 $gradient_yellow_red: #fff;
 
 .masaya {
@@ -50,7 +50,7 @@ body {
         width: 100vw;
         height: 100vh;
 
-        background:linear-gradient(135deg,$color-yellow,$color-red);
+        background: linear-gradient(135deg, $color-yellow, $color-red);
 
         .vertical-middle {
             height: auto;
@@ -60,7 +60,7 @@ body {
             align-items: center;
         }
 
-        h1{
+        h1 {
             color: $color-white;
         }
     }
@@ -281,7 +281,7 @@ h1 {
     .small {
         width: 280px;
         height: 40px;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
 
     .middle {
@@ -597,7 +597,7 @@ label:hover {
     }
 }
 
-.button_login{
+.button_login {
     width: 140px;
     height: 50px;
     background-color: $color-yellow;
@@ -609,15 +609,16 @@ label:hover {
     align-items: center;
     justify-content: center;
     color: $color-white;
+    margin-top: 20px;
     margin-bottom: 20px;
 
-    &:hover{
+    &:hover {
         transform: translateY(2px);
         box-shadow: 0 2px 0 0 $color-yellow-shadow;
     }
 }
 
-.error_message{
+.error_message {
     display: inline-block;
     width: 100%;
     color: $color-red;
@@ -626,10 +627,10 @@ label:hover {
     text-align: center;
 }
 
-.p_white{
+.p_white {
     color: $color-white;
 
-    .link_decoration{
+    .link_decoration {
         color: $color-white;
     }
 }
