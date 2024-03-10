@@ -19,7 +19,6 @@ onAuthStateChanged(auth, (user) => {
   console.log(uid);
 });
 
-
 const exampleObject: TasksObject[] = [
   {
     position: "レジ",
@@ -50,23 +49,26 @@ const exampleObject: TasksObject[] = [
 
 const View_add_manual_third = () => {
   const [GPTresponse, setGPTresponse] = useState<TasksObject[]>();
-  const context = useContext(PlaceContext);
-
-  // const { setIndustry } = useContext(PlaceContext);
-  // const { setPlace } = useContext(PlaceContext);
-  // const { setPosition } = useContext(PlaceContext);
+  
+  const { json } = useContext(PlaceContext);
+  const { position } = useContext(PlaceContext);
 
   useEffect(() => {
-    setGPTresponse(exampleObject);
-  }, []);
 
-  //   ポジションはuseContextで取得するように書き換えてね
-  const position = context.position;
+    console.log("Object.entries(json)", Object.entries(json));
+    // 値を入れた
+    setGPTresponse(
+      Object.entries<TasksObject>(json).map(([, value]) => {
+        return {
+          position: value.position,
+          title: value.title,
+          task: value.task,
+        };
+      })
+    );
+  }, [json]);
 
-  useEffect(() => {
-    // exampleObjectの代わりにGPTの変数を入れてね
-    setGPTresponse(exampleObject);
-  }, []);
+  console.log("GPTresponse", GPTresponse);
 
   // Firestoreにタスクを保存する関数
   const saveTasksToFirestore = async (uid: string) => {
