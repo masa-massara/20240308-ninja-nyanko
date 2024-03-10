@@ -13,7 +13,7 @@ const CreateMenu: FC<Props> = ({ worksname, index, works, link }) => {
         <h1>マニュアル作成({index}/3)</h1>
         <p>{works}を選択してください</p>
         <div className="divSelect">
-          <select name="works" className="select_middle">
+          <select title="a" name="works" className="select_middle">
             {worksname.map((position) => {
               return <option value={position}>{position}</option>;
             })}

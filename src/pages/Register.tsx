@@ -69,6 +69,7 @@ const Register = () => {
           <input name="password" type="password" placeholder="Password" />
           <p>あなたの役職は？</p>
           <input
+          title="a"
             type="radio"
             name="position-select-button"
             value="company"
@@ -76,6 +77,7 @@ const Register = () => {
           ></input>
           <label>社員</label>
           <input
+          title="a"
             type="radio"
             name="position-select-button"
             value="arbeit"

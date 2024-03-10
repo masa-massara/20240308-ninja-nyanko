@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { ReactComponent as Mic } from "../../images/Mic.svg";
+import { useState } from "react";
+import Mic from "../../images/Mic.svg";
 import Stop from "../../images/Stop.svg";
 
 interface ISpeechRecognitionEvent {
@@ -15,7 +15,7 @@ interface ISpeechRecognitionEvent {
 }
 
 const Voice = () => {
-  const [transcript, setTranscript] = useState(''); // 音声認識の結果を保存するための state
+  const [transcript, setTranscript] = useState(""); // 音声認識の結果を保存するための state
   const [isStop, setIsStop] = useState(false); // 音声認識を停止するための state
 
   // コメントで次の行を無視するようにする
@@ -57,7 +57,7 @@ const Voice = () => {
   return (
     <div>
       <button onClick={handleVoice}>
-        <img src={isStop ? Stop:Mic} alt="mic" />
+        <img src={isStop ? Stop : Mic} alt="mic" />
       </button>
       <p>{transcript}</p>
     </div>
