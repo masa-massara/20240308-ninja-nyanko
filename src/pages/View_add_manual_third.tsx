@@ -1,14 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Button_small_red from "../components/common/Button_small_red";
 import Button_small_yellow from "../components/common/Button_small_yellow";
 import Component_add_manual from "../components/common/Component_add_manual";
 import Div_position from "../components/common/Div_position";
 import Header from "../components/common/Header";
 import { TasksObject } from "../types/types";
-
 import { db, auth } from "../context/firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
+import { PlaceContext } from "../App";
+// import { PlaceContext } from "../App";
 
 onAuthStateChanged(auth, (user) => {
   if (!user) {
@@ -17,6 +18,7 @@ onAuthStateChanged(auth, (user) => {
   const uid = user.uid;
   console.log(uid);
 });
+
 
 const exampleObject: TasksObject[] = [
   {
@@ -48,13 +50,18 @@ const exampleObject: TasksObject[] = [
 
 const View_add_manual_third = () => {
   const [GPTresponse, setGPTresponse] = useState<TasksObject[]>();
+  const context = useContext(PlaceContext);
+
+  // const { setIndustry } = useContext(PlaceContext);
+  // const { setPlace } = useContext(PlaceContext);
+  // const { setPosition } = useContext(PlaceContext);
 
   useEffect(() => {
     setGPTresponse(exampleObject);
   }, []);
 
   //   ポジションはuseContextで取得するように書き換えてね
-  const position = "レジ";
+  const position = context.position;
 
   useEffect(() => {
     // exampleObjectの代わりにGPTの変数を入れてね

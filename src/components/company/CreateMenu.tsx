@@ -1,4 +1,4 @@
-import { FC, useContext } from "react";
+import { FC, useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { PlaceContext } from "../../App";
 import { OpenAxios } from "../common/OpenAxios";
@@ -12,14 +12,20 @@ type Props = {
 const CreateMenu: FC<Props> = ({ index, works, link }) => {
   const { setPosition } = useContext(PlaceContext);
   const context = useContext(PlaceContext);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const aihandle = () => {
-    OpenAxios(`${context.place}という${context.industry}の${context.position}のバイトマニュアルを出力してもらいます。
+  const aihandle = async () => {
+    const res =
+      await OpenAxios(`${context.place}という${context.industry}の${context.position}のバイトマニュアルを出力してもらいます。
     形式は
     タイトル：(中身)
     内容：(中身)
-    を1セットとして、返答をJSON形式で崩さず5セット出力してください。`);
-  }
+    を1セットとして、返答をJSON形式で崩さず5セット出力してください。
+    `);
+    console.log(JSON.parse(res.choices[0].message.content));
+    setIsLoading(true);
+    console.log(isLoading);
+  };
 
   return (
     <div className="center_center">
@@ -40,9 +46,9 @@ const CreateMenu: FC<Props> = ({ index, works, link }) => {
         {/* AI発火させる */}
         <div className="button_next">
           <Link to={link}>
-            <button 
-              className="next"
-              onClick={aihandle}>次へへへへへ</button>
+            <button className="next" onClick={aihandle}>
+              次へへへへへ
+            </button>
           </Link>
         </div>
       </div>
