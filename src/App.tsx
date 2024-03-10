@@ -12,6 +12,7 @@ import TopPageCompany from "./pages/TopPageCompany";
 import ResultList from "./pages/ResultList";
 import ManualListCompany from "./pages/ManualListCompany";
 import CreateQuiz from "./components/staff/CreateQuiz";
+import Quizmenu from "./pages/Quizmenu";
 
 
 type PlaceContextType = {
@@ -63,7 +64,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/arbeit" element={<TopPageArbeit />} />
-              <Route path="/arbeit/selectquiz" element={<CreateQuiz />} />
+              <Route path="/arbeit/selectquiz" element={<Quizmenu />} />
               <Route path="/company" element={<TopPageCompany />} />
               <Route path="/company/resultlist" element={<ResultList />} />
               <Route path="/company/manual" element={<ManualListCompany />} />

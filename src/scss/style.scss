@@ -53,8 +53,6 @@ body {
         .divViewQuiz {
             width: 100vw;
             height: 100vh;
-
-
         }
 
         background: linear-gradient(135deg, $color-yellow, $color-red);
@@ -319,7 +317,7 @@ h1 {
         border: none;
         border-radius: 20px;
         overflow: hidden;
-        box-shadow: inset $neumorphism-shadow-inset;
+        box-shadow: $neumorphism-shadow-inset;
         display: flex;
     }
 

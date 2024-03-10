@@ -13,7 +13,7 @@ const SomePage = () => {
   const { setPlace } = useContext(PlaceContext);
 
   return (
-    <div className="center_center">
+    <div className="vertical-middle">
       <div className="add_manual">
         <h1>マニュアル作成({index}/3)</h1>
         <p>{works}を選択してください</p>

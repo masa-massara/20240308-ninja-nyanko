@@ -78,31 +78,8 @@ const Register = () => {
       <div className="vertical-middle">
         <div className="formContainer">
           <div className="formWrapper">
-
             <span className="logo"></span>
-            <span className="title">登録</span>
-            <form onSubmit={handleSubmit}>
-              <input name="username" type="text" placeholder="Username" />
-              <input name="email" type="email" placeholder="Email" />
-              <input name="password" type="password" placeholder="Password" />
-              <p>あなたの役職は？</p>
-              <input
-                title="position-select-button"
-                type="radio"
-                name="position-select-button"
-                value="company"
-                checked
-              ></input>
-              <label>社員</label>
-              <input
-                title="position-select-button"
-                type="radio"
-                name="position-select-button"
-                value="arbeit"
-              ></input>
-              <label>アルバイト</label>
-            </form>
-
+            <h1 className="title">登録</h1>
 
             <div className="textarea_input">
               <form onSubmit={handleSubmit} className="form_input">
