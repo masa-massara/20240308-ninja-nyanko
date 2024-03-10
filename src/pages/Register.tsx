@@ -5,6 +5,7 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Voice from "../components/common/Voice";
+import React from "react";
 
 const Register = () => {
   const [err, setErr] = useState(false);
@@ -69,6 +70,28 @@ const Register = () => {
           <input name="password" type="password" placeholder="Password" />
           <p>あなたの役職は？</p>
           <input
+            type="radio"
+            name="position-select-button"
+            value="company"
+            checked
+          ></input>
+          <label>社員</label>
+          <input
+            type="radio"
+            name="position-select-button"
+            value="arbeit"
+          ></input>
+          <label>アルバイト</label>
+    <div className="formContainer">
+      <div className="formWrapper">
+        <span className="logo"></span>
+        <span className="title">登録</span>
+        <form onSubmit={handleSubmit}>
+          <input name="username" type="text" placeholder="Username" />
+          <input name="email" type="email" placeholder="Email" />
+          <input name="password" type="password" placeholder="Password" />
+          <p>あなたの役職は？</p>
+          <input
           title="a"
             type="radio"
             name="position-select-button"
@@ -85,11 +108,7 @@ const Register = () => {
           <label>アルバイト</label>
 
           <button>Sign up</button>
-<<<<<<< HEAD
-          {err && <span>エラーが発生しました</span>}
-=======
           {errorMessage && <span className="error">{errorMessage}</span>}
->>>>>>> dev
         </form>
         <p>
           Already have an account?

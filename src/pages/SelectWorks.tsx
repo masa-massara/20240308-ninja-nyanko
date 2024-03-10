@@ -1,15 +1,53 @@
+import React from "react";
+import { Link } from "react-router-dom";
 import CreateMenu from "../components/company/CreateMenu";
 
 const SelectWorks = () => {
   const industry = ["飲食店", "サービス業", "小売業", "製造業", "IT業"];
   return (
-    <div>
-      <CreateMenu
-        index={1}
-        works="業種"
-        worksname={industry}
-        link="/works/position/"
-      />
+    <div className="vertical-middle">
+      <div className="add_manual">
+        <h1>マニュアル作成({index}/3)</h1>
+        <p>{works}を選択してください</p>
+        <div className="divSelect">
+          <select
+            value={selectedWorks} // selectの値をselectedWorksの状態に同期
+            onChange={(e) => setPlace(e.target.value)}
+            name="works"
+            className="select_middle"
+          >
+            {worksname.map((position, idx) => {
+              return (
+                <option key={idx} value={position}>
+                  {position}
+                </option>
+              );
+            })}
+          </select>
+        </div>
+
+        {/* 選択した作業を表示 */}
+        <p>選択された作業: {selectedWorks}</p>
+
+        <div className="textarea_input">
+          <form className="form_input">
+            <input
+              type="text"
+              className="small"
+              placeholder="入力欄"
+              onChange={(e) => setIndustry(e.target.value)}
+            ></input>
+          </form>
+        </div>
+
+        <div className="button_next">
+          <Link to={link}>
+            <button className="next">
+              次へ
+            </button>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };
