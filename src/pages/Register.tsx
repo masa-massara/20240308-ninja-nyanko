@@ -85,7 +85,11 @@ const Register = () => {
           <label>アルバイト</label>
 
           <button>Sign up</button>
+<<<<<<< HEAD
           {err && <span>エラーが発生しました</span>}
+=======
+          {errorMessage && <span className="error">{errorMessage}</span>}
+>>>>>>> dev
         </form>
         <p>
           Already have an account?
