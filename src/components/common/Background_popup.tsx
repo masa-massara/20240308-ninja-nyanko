@@ -1,6 +1,6 @@
 const Background_popup = () => {
   return (
-    <div className="background_popip">
+    <div className="background_popup">
       <p>キッチンのマニュアルを作成しますか</p>
       <div className="display_yesno">
         <div className="div_yesno_button">
