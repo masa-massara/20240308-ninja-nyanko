@@ -11,6 +11,7 @@ import Quizmenu from "./pages/Quizmenu";
 import { createContext, useState } from "react";
 import AddPosition from "./pages/AddPosition";
 import View_add_manual_third from "./pages/View_add_manual_third";
+import View_manual_list from "./pages/View_manual_list";
 
 type PlaceContextType = {
   place: string;
@@ -30,6 +31,15 @@ export const PlaceContext = createContext<PlaceContextType>(
 );
 
 function App() {
+  // 業種
+  const [place, setPlace] = useState("");
+  // ポジション
+  const [position, setPosition] = useState("");
+  // 店舗名
+  const [industry, setIndustry] = useState("");
+  // JSON
+  const [json, setJson] = useState("");
+
   // 業種
   const [place, setPlace] = useState("");
   // ポジション
@@ -71,7 +81,9 @@ function App() {
               <Route path="/arbeit/selectquiz" element={<Quizmenu />} />
               <Route path="/company" element={<TopPageCompany />} />
               <Route path="/*" element={<NotFound />} />
-              <Route path="/foo" element={<View_add_manual_third />} />
+              <Route path="/thirdl" element={<View_add_manual_third />} />
+              <Route path="/list" element={<View_manual_list />} />
+
             </Routes>
           </BrowserRouter>
         </div>
