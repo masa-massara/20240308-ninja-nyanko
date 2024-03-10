@@ -1,20 +1,15 @@
-import { TasksObject } from "../../types/types";
-import Button_small_blue from "./Button_small_blue";
+import Button_small_blue from "./Button_small_blue"
 
-type DivManuelPartsProps = {
-  task: TasksObject;
-};
-
-const DivManuelParts = ({ task }: DivManuelPartsProps) => {
+const DivManuelParts = () => {
   return (
     <div className="divManualParts">
-      <p className="title">{task.title}</p>
+      <p className="title">TITLE TITLE</p>
       <div className="div_circle">
-        <p className="circle">{task.task}</p>
+        <p className="circle">text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</p>
       </div>
       <Button_small_blue />
     </div>
-  );
-};
+  )
+}
 
-export default DivManuelParts;
+export default DivManuelParts

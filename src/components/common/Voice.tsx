@@ -1,3 +1,7 @@
+import { useState } from "react";
+import Mic from "../../images/mic.svg?react";
+import Stop from "../../images/Stop.svg?react";
+
 interface ISpeechRecognitionEvent {
   isTrusted?: boolean;
   results: {
@@ -11,45 +15,51 @@ interface ISpeechRecognitionEvent {
 }
 
 const Voice = () => {
+  const [transcript, setTranscript] = useState(""); // 音声認識の結果を保存するための state
+  const [isStop, setIsStop] = useState(false); // 音声認識を停止するための state
+
   // コメントで次の行を無視するようにする
   /* eslint @typescript-eslint/no-explicit-any: 0 */
-  const recognition = new (window as any).webkitSpeechRecognition() || new (window as any).SpeechRecognition;
-  
+  const recognition =
+    new (window as any).webkitSpeechRecognition() ||
+    new (window as any).SpeechRecognition();
+  recognition.lang = "ja-JP";
+  recognition.interimResults = true;
+  recognition.continuous = true;
+
   const handleVoice = () => {
-    recognition.lang = 'ja-JP'; // 言語を日本語に設定
-    recognition.interimResults = true; // 途中結果を取得するかどうか
-    recognition.continuous = true; // 連続的に音声を取得するかどうか
-
-    recognition.onresult = (event: ISpeechRecognitionEvent) => {
-      // あればtrueなければfalse
-      if (event.results[0] && event.results[0][0]){
-        console.log(event.results[0][0].transcript); // 実際の音声テキスト
-        // !event.results[0][0]の時
-      } else if (event.results[0] && !event.results[0][0]) {
-        console.log("event.results[0][0]がない")
-      } else {
-        console.log("何もない")
-      }
-      console.log(event.results[0].isFinal); // 発言が終了したかどうか
-    };
-
-    recognition.onerror = () => {
-      console.error('Speech recognition error'); // エラーハンドリング
+    if (isStop) {
+      recognition.stop();
+      setIsStop(false);
+    } else {
+      recognition.start();
+      setIsStop(true);
     }
-
-    recognition.start();
   };
 
-  const handleVoiceStop = () => {
-    recognition.stop();
+  recognition.onresult = (event: ISpeechRecognitionEvent) => {
+    if (event.results[0] && event.results[0][0]) {
+      const currentTranscript = event.results[0][0].transcript;
+      console.log(currentTranscript);
+      setTranscript(currentTranscript); // 状態を更新
+    } else if (event.results[0] && !event.results[0][0]) {
+      console.log("event.results[0][0]がない");
+    } else {
+      console.log("何もなかった！");
+    }
+  };
+
+  recognition.onerror = () => {
+    console.error("Speech recognition error");
+    setIsStop(false);
   };
 
   return (
     <div>
-      <button onClick={handleVoice}>Start</button>
-      <button onClick={handleVoiceStop}>stop</button>
+      <button onClick={handleVoice}>{isStop ? <Stop /> : <Mic />}</button>
+      <p>{transcript}</p>
     </div>
   );
-}
+};
 
 export default Voice;

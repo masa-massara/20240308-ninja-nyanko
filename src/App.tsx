@@ -1,18 +1,16 @@
-import { createContext, useState } from "react";
 import CheckCreate from "./pages/CheckCreate";
 import SelectWorks from "./pages/SelectWorks";
 import SelectPosition from "./pages/SelectPosition";
-import AddPosition from "./pages/AddPosition";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import TopPageArbeit from "./pages/TopPageArbeit";
 import TopPageCompany from "./pages/TopPageCompany";
-import ResultList from "./pages/ResultList";
-import ManualListCompany from "./pages/ManualListCompany";
 import Quizmenu from "./pages/Quizmenu";
-
+import { createContext, useState } from "react";
+import AddPosition from "./pages/AddPosition";
+import View_add_manual_third from "./pages/View_add_manual_third";
 
 type PlaceContextType = {
   place: string;
@@ -21,12 +19,15 @@ type PlaceContextType = {
   setPosition: React.Dispatch<React.SetStateAction<string>>;
   industry: string;
   setIndustry: React.Dispatch<React.SetStateAction<string>>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  json: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  setJson: React.Dispatch<React.SetStateAction<any>>;
 };
 
 export const PlaceContext = createContext<PlaceContextType>(
   {} as PlaceContextType
 );
-
 
 function App() {
   // 業種
@@ -35,10 +36,11 @@ function App() {
   const [position, setPosition] = useState("");
   // 店舗名
   const [industry, setIndustry] = useState("");
+  // JSON
+  const [json, setJson] = useState("");
 
   return (
     <>
-
       <PlaceContext.Provider
         value={{
           place,
@@ -47,6 +49,8 @@ function App() {
           setPosition,
           industry,
           setIndustry,
+          json,
+          setJson,
         }}
       >
         <div>
@@ -66,9 +70,8 @@ function App() {
               <Route path="/arbeit" element={<TopPageArbeit />} />
               <Route path="/arbeit/selectquiz" element={<Quizmenu />} />
               <Route path="/company" element={<TopPageCompany />} />
-              <Route path="/company/resultlist" element={<ResultList />} />
-              <Route path="/company/manual" element={<ManualListCompany />} />
               <Route path="/*" element={<NotFound />} />
+              <Route path="/foo" element={<View_add_manual_third />} />
             </Routes>
           </BrowserRouter>
         </div>
