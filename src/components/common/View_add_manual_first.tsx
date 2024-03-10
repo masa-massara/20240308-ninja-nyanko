@@ -1,6 +1,7 @@
 import Textarea_input_small from "./Textarea_input_small";
 import Button_next from "./Button_next";
 import Droplist_gyousyu from "./Droplist_gyousyu";
+import "./../../scss/style.scss";
 
 const View_add_manual_first = () => {
   return (
