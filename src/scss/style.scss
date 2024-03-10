@@ -11,10 +11,13 @@ $color-gray-opacity: rgba(141, 141, 162, 0.58);
 $color-white: #ffffff;
 $color-white-opacity: rgba(255, 255, 255, 0.8);
 $neumorphism-shadow: 10px 10px 20px 0 $color-gray-opacity, -10px -10px 20px 0 $color-white-opacity;
-$neumorphism-shadow-inset: 4px 4px 8px 0 $color-gray-opacity, -4px -4px 8px 0 $color-white-opacity;
-$neumorphism-shadow-hover: inset 4px 4px 8px 0 $color-gray-opacity, -4px -4px 8px 0 $color-white-opacity;
+$neumorphism-shadow-inset: inset 4px 4px 8px 0 $color-gray-opacity, inset -4px -4px 8px 0 $color-white-opacity;
+$neumorphism-shadow-hover: inset 4px 4px 8px 0 $color-gray-opacity, -4px -4px 8px 0 $color-white-opacity ;
+$gradient_yellow_red: #fff;
 
-
+.masaya {
+    background-color: #dd5663;
+}
 
 html {
     box-sizing: border-box;
@@ -23,13 +26,16 @@ html {
     margin: 0;
     background-color: $color-gray;
     color: $color-black;
+
 }
+
+
 
 body {
     width: 100%;
     height: auto;
     min-height: 100vh;
-    max-width: 400px;
+    // max-width: 400px;
     margin: 0 auto;
     padding: 0;
     background-color: $color-gray;
@@ -47,6 +53,8 @@ body {
         .divViewQuiz {
             width: 100vw;
             height: 100vh;
+
+
         }
 
         background: linear-gradient(135deg, $color-yellow, $color-red);
@@ -97,7 +105,6 @@ body {
         justify-content: center;
         align-items: center;
     }
-
 }
 
 h1 {
@@ -197,6 +204,10 @@ h1 {
 
     .red {
         background-color: $color-red;
+    }
+
+    .black{
+        background-color: $color-black;
     }
 }
 
@@ -299,6 +310,7 @@ h1 {
     width: fit-content;
     border-radius: 20px;
     margin: 0 auto;
+    flex-direction: column;
 
     input {
         width: 100%;
@@ -307,13 +319,19 @@ h1 {
         border: none;
         border-radius: 20px;
         overflow: hidden;
-        box-shadow: $neumorphism-shadow-inset;
+        box-shadow: inset $neumorphism-shadow-inset;
         display: flex;
+    }
+
+    input[type="radio"]{
+        width: fit-content;
     }
 
     .small {
         width: 280px;
         height: 40px;
+        margin-bottom: 10px;
+        box-shadow: $neumorphism-shadow-inset;
     }
 
     .middle {
@@ -328,6 +346,10 @@ h1 {
         height: 360px;
         margin: 0 auto 20px auto;
         padding: 0 10px;
+    }
+
+    lavel{
+        background-color: none;
     }
 
 
@@ -367,7 +389,8 @@ h1 {
 
 .divManualParts {
     width: fit-content;
-    height: 208px;
+    height: fit-content;
+    max-height: 208px;
     padding: 8px 16px;
     border-radius: 20px;
     box-shadow: $neumorphism-shadow;
@@ -383,7 +406,8 @@ h1 {
 
     .div_circle {
         width: 280px;
-        height: 120PX;
+        height: fit-content;
+        max-height: 120px;
     }
 
     .circle {
@@ -393,6 +417,23 @@ h1 {
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 4;
 
+    }
+
+    a {
+        width: fit-content;
+
+        &:hover {
+            color: $color-yellow;
+        }
+
+        p {
+            width: fit-content;
+            border-bottom: solid 1px $color-black;
+
+            &:hover {
+                border-bottom: solid 1px $color-yellow;
+            }
+        }
     }
 
 }
@@ -415,9 +456,13 @@ h1 {
     .button_delete {
         background-color: $color-red;
     }
+
+    .button_edit {
+        background-color: $color-blue;
+    }
 }
 
-.background_popip {
+.background_popup {
     margin-top: 20px; //kesu
     width: 370px;
     height: 180px;
@@ -477,13 +522,7 @@ h1 {
 
 }
 
-.vertical_middle {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 
 
 .add_manual {
@@ -517,7 +556,7 @@ h1 {
     align-items: center;
     display: flex;
     justify-content: center;
-    background-color: $color-black;
+    background-color: $color-gray-opacity;
 }
 
 .input_file {
@@ -539,3 +578,282 @@ label {
 label:hover {
     opacity: 0.8;
 }
+
+.div_img_add_manual {
+    width: 320px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .img_add_manual {
+        width: 200px;
+        max-width: 250px;
+        height: auto;
+        background-color: gray;
+    }
+
+
+}
+
+.header_title {
+    width: 400px;
+    display: flex;
+    border-bottom: solid 1px $color-white;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .header {
+        margin: 0;
+        border: none;
+    }
+
+    .button_small {
+        margin-right: 20px;
+    }
+}
+
+.div_manual_list {
+    margin-bottom: 20px;
+    display: flex;
+
+    .buttons {
+        margin: auto;
+    }
+}
+
+.react-tabs {
+    -webkit-tap-highlight-color: transparent;
+
+    .react-tabs__tab-list {
+        padding: 0;
+        display: flex;
+        align-items: end;
+        list-style: none;
+        white-space: nowrap;
+        overflow: scroll;
+
+        .react-tabs__tab {
+            height: fit-content;
+            padding: 10px 40px;
+            font-size: 24px;
+            font-weight: bold;
+            border: solid 1px $color-gray-opacity;
+            border-radius: 20px 20px 0 0;
+            margin-top: 40px;
+        }
+
+        .react-tabs__tab--selected {
+            padding: 25px 45px;
+            background-color: $color-black;
+            color: $color-white;
+            border-radius: 20px 20px 0 0;
+        }
+    }
+}
+
+.button_login {
+    width: 140px;
+    height: 50px;
+    background-color: $color-yellow;
+    border-radius: 20px;
+    box-shadow: 0 6px 0 0 $color-yellow-shadow;
+    border: none;
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    color: $color-white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    &:hover {
+        transform: translateY(2px);
+        box-shadow: 0 2px 0 0 $color-yellow-shadow;
+    }
+}
+
+.error_message {
+    display: inline-block;
+    width: 100%;
+    color: $color-red;
+    background-color: $color-white;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.p_white {
+    color: $color-white;
+
+    .link_decoration {
+        color: $color-white;
+    }
+}
+
+.div_arbeit_parts {
+    width: fit-content;
+    height: fit-content;
+    padding: 10px 8px 10px 16px;
+    box-shadow: $neumorphism-shadow;
+    border-radius: 0 20px 20px 0;
+
+    h2{
+        width: 370px;
+    }
+    p{
+        width: 370px;
+
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 5;
+    }
+
+}
+
+.divTime {
+    display: flex;
+    color: $color-white;
+    font-size: 24px;
+    font-weight: bold;
+    align-items: center;
+    width: 360px;
+    padding: 0 15px 0 15px;
+}
+
+.divButtonQuiz {
+    width: fit-content;
+    height: fit-content;
+    margin: 0 auto;
+
+    .buttonQuiz {
+        border: solid 2px $color-gray-opacity;
+        border-radius: 20px;
+        box-shadow: 0 6px 0 0 $color-gray-opacity;
+        width: 300px;
+        height: 72px;
+
+        &:hover{
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 0 $color-gray-opacity;
+        }
+    }
+}
+
+.pQuestionNo{
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 4px;
+    padding-left: 8px;
+}
+
+.divResultFlex{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 16px;
+
+    
+}
+
+.background_gray_inset .min{
+    width: 70px;
+    height: 70px;
+    box-shadow: $neumorphism-shadow-inset;
+    background-color: $color-gray;
+    border-radius: 20px;
+    margin: 0 auto;
+    
+}
+
+.divQuizResult{
+    width: fit-content;
+    height: fit-content;
+    box-shadow: $neumorphism-shadow;
+    border-radius: 0 20px 20px 0;
+    padding: 10px 8px;
+
+
+    p{
+        width: 280px;
+        height: fit-content;
+        margin: 0 auto;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+        margin-bottom: 8px;
+    }
+}
+
+.pPercent{
+    width: fit-content;
+    font-size: 82px;
+    font-weight: bold;
+    margin: 0 auto;
+
+
+    span{
+        font-size: 56px;
+    }
+}
+
+.pComment{
+    font-weight: bold;
+    margin: 0 auto;
+    width: fit-content;
+    background: linear-gradient(135deg,$color-yellow,$color-red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.inputRangeQuizResult[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: $color-gray;
+    box-shadow: $neumorphism-shadow-inset;
+    height: 30px;
+    width: 300px;
+    margin: 0 auto;
+    display: block;
+    border-radius: 6px;
+  
+    &:focus,
+    &:active {
+      outline: none;
+    }
+  
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      cursor: pointer;
+      position: relative;
+      width: 22px;
+      height: 22px;
+      display: block;
+      background-color: #07be19;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+    }
+
+}
+
+.background_popup_manual{
+    width: 85vw;
+    height: fit-content;
+    border-radius: 20px;
+    padding: 20px 16px;
+    background-color: $color-white;
+}
+
+.pManualListComponent{
+    width: 80vw;
+    height: auto;
+    max-height: 80vh;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+
+
+
