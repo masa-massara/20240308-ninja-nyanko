@@ -1,4 +1,3 @@
-import React from "react";
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { PlaceContext } from "../App";
@@ -16,6 +15,7 @@ const SelectWorks = () => {
         <p>業種を選択してください</p>
         <div className="divSelect">
           <select
+            title="works"
             value={selectedWorks} // selectの値をselectedWorksの状態に同期
             onChange={(e) => setPlace(e.target.value)}
             name="works"

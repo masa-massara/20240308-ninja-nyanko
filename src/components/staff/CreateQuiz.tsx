@@ -9,7 +9,9 @@ const CreateQuiz:FC<Props> = ({stage}) => {
     <div>
         <h1>マニュアルクイズ</h1>
         <p>ステージを選択してください</p>
-        <select name="stage">
+        <select 
+          title="stage"
+          name="stage">
             {stage.map((work) => {
                 return <option value={work}>{work}</option>
             })}
