@@ -5,6 +5,7 @@ type Props = {
 };
 
 const AddPosition: FC<Props> = ({ position }) => {
+  // プロンプトの確認できる
   const context = useContext(PlaceContext);
   console.log("context", context);
 

@@ -8,8 +8,9 @@ const SomePage = () => {
   const index = 1; // 現在のステップ番号
   const works = "仕事"; // 選択する項目の説明
 
-  const [selectedWorks, setSelectedWorks] = useState(worksname[0]); // 初期値をリストの最初の要素に設定
+  const [selectedWorks] = useState(worksname[0]); // 初期値をリストの最初の要素に設定
   const { setIndustry } = useContext(PlaceContext);
+  const { setPlace } = useContext(PlaceContext);
 
   return (
     <div className="center_center">
@@ -19,7 +20,7 @@ const SomePage = () => {
         <div className="divSelect">
           <select
             value={selectedWorks} // selectの値をselectedWorksの状態に同期
-            onChange={(e) => setSelectedWorks(e.target.value)}
+            onChange={(e) => setPlace(e.target.value)}
             name="works"
             className="select_middle"
           >
@@ -48,9 +49,11 @@ const SomePage = () => {
         </div>
 
         <div className="button_next">
-          <button className="next">
-            <Link to={link}>次へ</Link>
-          </button>
+          <Link to={link}>
+            <button className="next">
+              次へ
+            </button>
+          </Link>
         </div>
       </div>
     </div>
