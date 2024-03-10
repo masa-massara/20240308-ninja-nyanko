@@ -5,9 +5,10 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Voice from "../components/common/Voice";
+import { FirebaseError } from "firebase/app";
 
 const Register = () => {
-  const [err, setErr] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -53,8 +54,22 @@ const Register = () => {
         navigate("/arbeit");
       }
     } catch (error) {
-      console.error(error);
-      setErr(true);
+      if (error instanceof FirebaseError) {
+        let message = '登録中にエラーが発生しました。しばらくしてから再試行してください。';
+        switch (error.code) {
+          case 'auth/email-already-in-use':
+            message = 'このメールアドレスは既に使用されています。';
+            break;
+          case 'auth/weak-password':
+            message = 'パスワードが弱すぎます。もっと複雑なパスワードを設定してください。';
+            break;
+        }
+        setErrorMessage(message);
+      } else {
+        // Firebaseのエラーではない場合の処理
+        console.error('エラーが発生しました:', error);
+        setErrorMessage('予期せぬエラーが発生しました。');
+      }
     }
   };
 
@@ -83,7 +98,7 @@ const Register = () => {
           <label>アルバイト</label>
 
           <button>Sign up</button>
-          {err && <span>エラーが発生しました</span>}
+          {errorMessage && <span className="error">{errorMessage}</span>}
         </form>
         <p>
           Already have an account?
