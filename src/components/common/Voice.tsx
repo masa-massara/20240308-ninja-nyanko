@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Mic from "../../images/mic.svg?react";
-import Stop from "../../images/stop.svg?react";
+import Stop from "../../images/Stop.svg?react";
 
 interface ISpeechRecognitionEvent {
   isTrusted?: boolean;
