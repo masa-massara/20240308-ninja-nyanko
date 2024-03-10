@@ -49,7 +49,7 @@ const exampleObject: TasksObject[] = [
 
 const View_add_manual_third = () => {
   const [GPTresponse, setGPTresponse] = useState<TasksObject[]>();
-  
+
   const { json } = useContext(PlaceContext);
   const { position } = useContext(PlaceContext);
 

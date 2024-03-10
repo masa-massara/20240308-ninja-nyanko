@@ -1,14 +1,19 @@
 import React from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import CreateMenu from "../components/company/CreateMenu";
+import { PlaceContext } from "../App";
 
 const SelectWorks = () => {
   const industry = ["飲食店", "サービス業", "小売業", "製造業", "IT業"];
+  const [selectedWorks] = useState(industry[0]); // 初期値をリストの最初の要素に設定
+  const { setIndustry } = useContext(PlaceContext);
+  const { setPlace } = useContext(PlaceContext);
+
   return (
     <div className="vertical-middle">
       <div className="add_manual">
-        <h1>マニュアル作成({index}/3)</h1>
-        <p>{works}を選択してください</p>
+        <h1>マニュアル作成(1/3)</h1>
+        <p>業種を選択してください</p>
         <div className="divSelect">
           <select
             value={selectedWorks} // selectの値をselectedWorksの状態に同期
@@ -16,7 +21,7 @@ const SelectWorks = () => {
             name="works"
             className="select_middle"
           >
-            {worksname.map((position, idx) => {
+            {industry.map((position, idx) => {
               return (
                 <option key={idx} value={position}>
                   {position}
@@ -41,7 +46,7 @@ const SelectWorks = () => {
         </div>
 
         <div className="button_next">
-          <Link to={link}>
+          <Link to="/position">
             <button className="next">
               次へ
             </button>
