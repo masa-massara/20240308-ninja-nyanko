@@ -9,9 +9,9 @@ import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import TopPageArbeit from "./pages/TopPageArbeit";
 import TopPageCompany from "./pages/TopPageCompany";
-import CreateQuiz from "./pages/SelectQuiz";
 import ResultList from "./pages/ResultList";
 import ManualListCompany from "./pages/ManualListCompany";
+
 
 type PlaceContextType = {
   place: string;
@@ -25,6 +25,7 @@ type PlaceContextType = {
 export const PlaceContext = createContext<PlaceContextType>(
   {} as PlaceContextType
 );
+
 
 function App() {
   // 業種
@@ -51,7 +52,6 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Login />} />
-
               <Route path="/works" element={<SelectWorks />} />
               <Route path="/works/position" element={<SelectPosition />} />
               <Route
@@ -71,6 +71,7 @@ function App() {
           </BrowserRouter>
         </div>
       </PlaceContext.Provider>
+
     </>
   );
 }
