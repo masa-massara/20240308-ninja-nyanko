@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import TopPageArbeit from "./pages/TopPageArbeit";
 import TopPageCompany from "./pages/TopPageCompany";
+import Quizmenu from "./pages/Quizmenu";
 import { createContext, useState } from "react";
 import AddPosition from "./pages/AddPosition";
 import View_add_manual_third from "./pages/View_add_manual_third";
@@ -67,6 +68,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/arbeit" element={<TopPageArbeit />} />
+              <Route path="/arbeit/selectquiz" element={<Quizmenu />} />
               <Route path="/company" element={<TopPageCompany />} />
               <Route path="/*" element={<NotFound />} />
               <Route path="/foo" element={<View_add_manual_third />} />
