@@ -45,7 +45,7 @@ const Voice = () => {
     } else if (event.results[0] && !event.results[0][0]) {
       console.log("event.results[0][0]がない");
     } else {
-      console.log("何もない");
+      console.log("何もなかった！");
     }
   };
 
