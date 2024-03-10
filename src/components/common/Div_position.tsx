@@ -1,13 +1,9 @@
-type DivPositionProps = {
-  position: string;
-};
-
-const Div_position = (props: DivPositionProps) => {
+const Div_position = () => {
   return (
     <div className="div_position">
-      <p className="p_position">{props.position}</p>
+      <p className="p_position">レジ</p>
     </div>
-  );
-};
+  )
+}
 
-export default Div_position;
+export default Div_position

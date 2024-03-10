@@ -2,20 +2,14 @@ import { Link } from "react-router-dom";
 
 const TopPageArbeit = () => {
   return (
-    <div className="background_gray">
-      <div className="large">
+    <div>
       <h2>Arbeit Manual</h2>
-      <div className="defaultButton">
-      <button className="defaultButton_red">
-        <Link to="/works"> マニュアルを作成</Link>
+      <button>
+        <Link to="/selectworks"> マニュアルを作成</Link>
       </button>
-      </div>
-      <div className="defaultButton">
-      <button className="defaultButton_yellow">
-        <Link to="/arbeit/selectquiz">マニュアルクイズ</Link>
+      <button>
+        <Link to="/Arbeit/Quiz">マニュアルクイズ</Link>
       </button>
-      </div>
-    </div>
     </div>
   );
 };

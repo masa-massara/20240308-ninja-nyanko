@@ -1,17 +1,15 @@
-import { createContext, useState } from "react";
 import CheckCreate from "./pages/CheckCreate";
 import SelectWorks from "./pages/SelectWorks";
 import SelectPosition from "./pages/SelectPosition";
-import AddPosition from "./pages/AddPosition";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import TopPageArbeit from "./pages/TopPageArbeit";
 import TopPageCompany from "./pages/TopPageCompany";
-import ResultList from "./pages/ResultList";
-import ManualListCompany from "./pages/ManualListCompany";
-import CreateQuiz from "./components/staff/CreateQuiz";
+import { createContext, useState } from "react";
+import AddPosition from "./pages/AddPosition";
+import View_add_manual_third from "./pages/View_add_manual_third";
 
 type PlaceContextType = {
   place: string;
@@ -69,10 +67,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/arbeit" element={<TopPageArbeit />} />
-              <Route path="/arbeit/selectquiz" element={<CreateQuiz />} />
               <Route path="/company" element={<TopPageCompany />} />
-              <Route path="/company/resultlist" element={<ResultList />} />
-              <Route path="/company/manual" element={<ManualListCompany />} />
               <Route path="/*" element={<NotFound />} />
               <Route path="/foo" element={<View_add_manual_third />} />
             </Routes>

@@ -1,16 +1,16 @@
+import { Link } from "react-router-dom";
 import { FC, useContext, useState } from "react";
 import { PlaceContext } from "../../App";
 import { OpenAxios } from "../common/OpenAxios";
-import { Link } from "react-router-dom";
 
 type Props = {
+  worksname: string[];
   link: string;
   index: number;
   works: string;
 };
 
-const CreateMenu: FC<Props> = ({ index, works, link}) => {
-  const { setPosition } = useContext(PlaceContext);
+const CreateMenu: FC<Props> = ({ worksname, index, works, link }) => {
   const context = useContext(PlaceContext);
   const [isLoading, setIsLoading] = useState(true);
   const { setJson } = useContext(PlaceContext);
@@ -34,23 +34,25 @@ const CreateMenu: FC<Props> = ({ index, works, link}) => {
       <div className="add_manual">
         <h1>マニュアル作成({index}/3)</h1>
         <p>{works}を選択してください</p>
+        <div className="divSelect">
+          <select title="a" name="works" className="select_middle">
+            {worksname.map((position) => {
+              return <option value={position}>{position}</option>;
+            })}
+          </select>
+        </div>
+
         <div className="textarea_input">
           <form className="form_input">
-            <input
-              type="text"
-              className="small"
-              placeholder="入力欄"
-              onChange={(e) => setPosition(e.target.value)}
-            ></input>
+            <input type="text" className="small" placeholder="入力欄"></input>
           </form>
         </div>
 
-        {/* AI発火させる */}
         <div className="button_next">
           <Link to={link}>
-          <button className="next" onClick={aihandle}>
-            次へへへへへ
-          </button>
+            <button className="next" onClick={aihandle}>
+              次へ
+            </button>
           </Link>
         </div>
       </div>
