@@ -11,8 +11,7 @@ import TopPageArbeit from "./pages/TopPageArbeit";
 import TopPageCompany from "./pages/TopPageCompany";
 import ResultList from "./pages/ResultList";
 import ManualListCompany from "./pages/ManualListCompany";
-import Quizmenu from "./pages/Quizmenu";
-import View_add_manual_third from "./pages/View_add_manual_third";
+import CreateQuiz from "./components/staff/CreateQuiz";
 
 type PlaceContextType = {
   place: string;
@@ -60,7 +59,6 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Login />} />
-
               <Route path="/works" element={<SelectWorks />} />
               <Route path="/works/position" element={<SelectPosition />} />
               <Route
@@ -71,7 +69,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/arbeit" element={<TopPageArbeit />} />
-              <Route path="/arbeit/selectquiz" element={<Quizmenu />} />
+              <Route path="/arbeit/selectquiz" element={<CreateQuiz />} />
               <Route path="/company" element={<TopPageCompany />} />
               <Route path="/company/resultlist" element={<ResultList />} />
               <Route path="/company/manual" element={<ManualListCompany />} />

@@ -7,7 +7,7 @@ type ComponentAddManualProps = { content: TasksObject[] | undefined };
 const Component_add_manual = (props: ComponentAddManualProps) => {
   return (
     <>
-      <div className="manual_parts">
+      <div>
         {props.content?.map((item, index) => (
           <div key={index} className="manual_parts">
             <DivManuelParts task={item} />

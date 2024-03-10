@@ -4,7 +4,6 @@ import { auth, db } from "../context/firebase";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import Voice from "../components/common/Voice";
 import { FirebaseError } from "firebase/app";
 
 const Register = () => {
