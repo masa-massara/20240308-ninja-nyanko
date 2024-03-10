@@ -48,7 +48,6 @@ const exampleObject: TasksObject[] = [
 
 const View_add_manual_third = () => {
   const [GPTresponse, setGPTresponse] = useState<TasksObject[]>();
-  const [userId, setUserId] = useState<string | null>(null);
 
   useEffect(() => {
     setGPTresponse(exampleObject);
@@ -87,12 +86,10 @@ const View_add_manual_third = () => {
           clickAct={() => {
             onAuthStateChanged(auth, (user) => {
               if (user) {
-                setUserId(user.uid);
                 // データをFirestoreに保存
                 saveTasksToFirestore(user.uid);
               } else {
                 // ユーザーがログアウトした場合、または認証されていない場合
-                setUserId(null);
               }
             });
           }}
