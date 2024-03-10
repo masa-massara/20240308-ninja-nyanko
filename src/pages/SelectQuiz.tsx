@@ -8,9 +8,9 @@ const SelectQuiz = () => {
     "サービススタッフ",
     "その他",
   ];
-  return(
+  return (
     <div>
-      <CreateQuiz stage={position}/>  
+      <CreateQuiz stage={position} />
     </div>
   );
 };

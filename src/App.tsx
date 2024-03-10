@@ -37,6 +37,7 @@ function App() {
 
   return (
     <>
+
       <PlaceContext.Provider
         value={{
           place,
@@ -71,7 +72,6 @@ function App() {
           </BrowserRouter>
         </div>
       </PlaceContext.Provider>
-
     </>
   );
 }
