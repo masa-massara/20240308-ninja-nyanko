@@ -13,6 +13,7 @@ import ResultList from "./pages/ResultList";
 import ManualListCompany from "./pages/ManualListCompany";
 import CreateQuiz from "./components/staff/CreateQuiz";
 import Quizmenu from "./pages/Quizmenu";
+import React from "react";
 
 
 type PlaceContextType = {

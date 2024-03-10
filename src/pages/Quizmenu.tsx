@@ -1,4 +1,4 @@
-// import { Link } from "react-router-dom";
+import React from "react";
 import CreateQuiz from "../components/staff/CreateQuiz";
 const Quizmenu = () => {
       const stage = [
