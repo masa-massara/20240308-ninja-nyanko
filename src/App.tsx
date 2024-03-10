@@ -11,6 +11,7 @@ import TopPageArbeit from "./pages/TopPageArbeit";
 import TopPageCompany from "./pages/TopPageCompany";
 import ResultList from "./pages/ResultList";
 import ManualListCompany from "./pages/ManualListCompany";
+import CreateQuiz from "./components/staff/CreateQuiz";
 
 
 type PlaceContextType = {
