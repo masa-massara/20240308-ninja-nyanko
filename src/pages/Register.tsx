@@ -5,11 +5,10 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Voice from "../components/common/Voice";
-import { FirebaseError } from "firebase/app";
 import React from "react";
 
 const Register = () => {
-  const [errorMessage, setErrorMessage] = useState("");
+  const [err, setErr] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -55,22 +54,8 @@ const Register = () => {
         navigate("/arbeit");
       }
     } catch (error) {
-      if (error instanceof FirebaseError) {
-        let message = '登録中にエラーが発生しました。しばらくしてから再試行してください。';
-        switch (error.code) {
-          case 'auth/email-already-in-use':
-            message = 'このメールアドレスは既に使用されています。';
-            break;
-          case 'auth/weak-password':
-            message = 'パスワードが弱すぎます。もっと複雑なパスワードを設定してください。';
-            break;
-        }
-        setErrorMessage(message);
-      } else {
-        // Firebaseのエラーではない場合の処理
-        console.error('エラーが発生しました:', error);
-        setErrorMessage('予期せぬエラーが発生しました。');
-      }
+      console.error(error);
+      setErr(true);
     }
   };
 
@@ -92,6 +77,30 @@ const Register = () => {
           ></input>
           <label>社員</label>
           <input
+            type="radio"
+            name="position-select-button"
+            value="arbeit"
+          ></input>
+          <label>アルバイト</label>
+    <div className="formContainer">
+      <div className="formWrapper">
+        <span className="logo"></span>
+        <span className="title">登録</span>
+        <form onSubmit={handleSubmit}>
+          <input name="username" type="text" placeholder="Username" />
+          <input name="email" type="email" placeholder="Email" />
+          <input name="password" type="password" placeholder="Password" />
+          <p>あなたの役職は？</p>
+          <input
+          title="a"
+            type="radio"
+            name="position-select-button"
+            value="company"
+            checked
+          ></input>
+          <label>社員</label>
+          <input
+          title="a"
             type="radio"
             name="position-select-button"
             value="arbeit"

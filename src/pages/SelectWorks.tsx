@@ -1,17 +1,9 @@
-import { useState, useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { PlaceContext } from "../App";
+import CreateMenu from "../components/company/CreateMenu";
 
-const SomePage = () => {
-  const worksname = ["仕事1", "仕事2", "仕事3"]; // 仮のデータ
-  const link = "/works/position"; // 次のページへのリンク
-  const index = 1; // 現在のステップ番号
-  const works = "仕事"; // 選択する項目の説明
-
-  const [selectedWorks] = useState(worksname[0]); // 初期値をリストの最初の要素に設定
-  const { setIndustry } = useContext(PlaceContext);
-  const { setPlace } = useContext(PlaceContext);
-
+const SelectWorks = () => {
+  const industry = ["飲食店", "サービス業", "小売業", "製造業", "IT業"];
   return (
     <div className="vertical-middle">
       <div className="add_manual">
@@ -60,4 +52,4 @@ const SomePage = () => {
   );
 };
 
-export default SomePage;
+export default SelectWorks;

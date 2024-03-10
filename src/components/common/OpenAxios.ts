@@ -20,7 +20,8 @@ export const OpenAxios = async (msg: string) => {
         },
       }
     );
-    console.log(response.data) // 応答データを返す
+    console.log(response.data); // 応答データを返す
+    return response.data;
   } catch (error) {
     console.log(error);
     throw error; // エラーを呼び出し元に投げる

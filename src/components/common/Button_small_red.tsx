@@ -1,15 +1,9 @@
-const Button_small_red = ({ clickAct }: Props) => {
+const Button_small_red = () => {
   return (
     <div className="button_small_color">
-      <button className="red" onClick={clickAct}>
-        追加
-      </button>
+        <button className="red">追加</button>
     </div>
-  );
-};
+  )
+}
 
-type Props = {
-  clickAct: () => void;
-};
-
-export default Button_small_red;
+export default Button_small_red
