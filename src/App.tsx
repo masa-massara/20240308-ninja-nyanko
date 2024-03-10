@@ -8,7 +8,6 @@ import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import TopPageArbeit from "./pages/TopPageArbeit";
 import TopPageCompany from "./pages/TopPageCompany";
-import CreateQuiz from "./pages/SelectQuiz";
 import ResultList from "./pages/ResultList";
 import ManualListCompany from "./pages/ManualListCompany";
 import Quizmenu from "./pages/Quizmenu";
