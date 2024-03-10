@@ -6,6 +6,18 @@ import Div_position from "../components/common/Div_position";
 import Header from "../components/common/Header";
 import { TasksObject } from "../types/types";
 
+import { db, auth } from "../context/firebase";
+import { collection, addDoc } from "firebase/firestore";
+import { onAuthStateChanged } from "firebase/auth";
+
+onAuthStateChanged(auth, (user) => {
+  if (!user) {
+    return;
+  }
+  const uid = user.uid;
+  console.log(uid);
+});
+
 const exampleObject: TasksObject[] = [
   {
     position: "レジ",
@@ -37,6 +49,10 @@ const exampleObject: TasksObject[] = [
 const View_add_manual_third = () => {
   const [GPTresponse, setGPTresponse] = useState<TasksObject[]>();
 
+  useEffect(() => {
+    setGPTresponse(exampleObject);
+  }, []);
+
   //   ポジションはuseContextで取得するように書き換えてね
   const position = "レジ";
 
@@ -45,14 +61,39 @@ const View_add_manual_third = () => {
     setGPTresponse(exampleObject);
   }, []);
 
+  // Firestoreにタスクを保存する関数
+  const saveTasksToFirestore = async (uid: string) => {
+    const manualsCollectionRef = collection(db, "users", uid, "manuals");
+
+    try {
+      exampleObject.forEach(async (task) => {
+        await addDoc(manualsCollectionRef, task);
+      });
+      console.log("タスクがFirestoreに保存されました");
+    } catch (error) {
+      console.error("Firestoreへの保存に失敗しました:", error);
+    }
+  };
+
   return (
     <>
       <Header />
       <Div_position position={position} />
-      <Component_add_manual content={GPTresponse}/>
+      <Component_add_manual content={GPTresponse} />
       <Button_small_yellow />
       <div className="inset_redbutton">
-        <Button_small_red clickAct={() => {}} />
+        <Button_small_red
+          clickAct={() => {
+            onAuthStateChanged(auth, (user) => {
+              if (user) {
+                // データをFirestoreに保存
+                saveTasksToFirestore(user.uid);
+              } else {
+                // ユーザーがログアウトした場合、または認証されていない場合
+              }
+            });
+          }}
+        />
       </div>
     </>
   );
