@@ -31,14 +31,7 @@ export const PlaceContext = createContext<PlaceContextType>(
 );
 
 function App() {
-  // 業種
-  const [place, setPlace] = useState("");
-  // ポジション
-  const [position, setPosition] = useState("");
-  // 店舗名
-  const [industry, setIndustry] = useState("");
-  // JSON
-  const [json, setJson] = useState("");
+
 
   // 業種
   const [place, setPlace] = useState("");
