@@ -11,8 +11,9 @@ $color-gray-opacity: rgba(141, 141, 162, 0.58);
 $color-white: #ffffff;
 $color-white-opacity: rgba(255, 255, 255, 0.8);
 $neumorphism-shadow: 10px 10px 20px 0 $color-gray-opacity, -10px -10px 20px 0 $color-white-opacity;
-$neumorphism-shadow-inset: 4px 4px 8px 0 $color-gray-opacity, -4px -4px 8px 0 $color-white-opacity;
-$neumorphism-shadow-hover: inset 4px 4px 8px 0 $color-gray-opacity, -4px -4px 8px 0 $color-white-opacity;
+$neumorphism-shadow-inset: 4px 4px 8px 0 $color-gray-opacity, -4px -4px 8px 0 $color-white-opacity inset;
+$neumorphism-shadow-hover: inset 4px 4px 8px 0 $color-gray-opacity, -4px -4px 8px 0 $color-white-opacity ;
+$gradient_yellow_red: #fff;
 
 .masaya {
     background-color: #dd5663;
@@ -25,7 +26,10 @@ html {
     margin: 0;
     background-color: $color-gray;
     color: $color-black;
+
 }
+
+
 
 body {
     width: 100%;
@@ -40,15 +44,26 @@ body {
 #root {
     width: 100%;
     height: fit-content;
+    min-height: 100vh;
 
-    .center_center {
-        height: auto;
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .div_bg_gradient {
+        width: 100vw;
+        height: 100vh;
+
+        background: linear-gradient(135deg, $color-yellow, $color-red);
+
+        .vertical-middle {
+            height: auto;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            color: $color-white;
+        }
     }
-
 }
 
 h1 {
@@ -250,6 +265,7 @@ h1 {
     width: fit-content;
     border-radius: 20px;
     margin: 0 auto;
+    flex-direction: column;
 
     input {
         width: 100%;
@@ -257,12 +273,15 @@ h1 {
         padding: 0 10px 0 10px;
         border: none;
         border-radius: 20px;
+        overflow: hidden;
         box-shadow: inset $neumorphism-shadow-inset;
+        display: flex;
     }
 
     .small {
         width: 280px;
         height: 40px;
+        margin-bottom: 10px;
     }
 
     .middle {
@@ -449,13 +468,7 @@ h1 {
 
 }
 
-.vertical_middle {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 
 
 .add_manual {
@@ -575,11 +588,49 @@ label:hover {
             margin-top: 40px;
         }
 
-        .react-tabs__tab--selected{
+        .react-tabs__tab--selected {
             padding: 25px 45px;
             background-color: $color-black;
             color: $color-white;
             border-radius: 20px 20px 0 0;
         }
+    }
+}
+
+.button_login {
+    width: 140px;
+    height: 50px;
+    background-color: $color-yellow;
+    border-radius: 20px;
+    box-shadow: 0 6px 0 0 $color-yellow-shadow;
+    border: none;
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    color: $color-white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    &:hover {
+        transform: translateY(2px);
+        box-shadow: 0 2px 0 0 $color-yellow-shadow;
+    }
+}
+
+.error_message {
+    display: inline-block;
+    width: 100%;
+    color: $color-red;
+    background-color: $color-white;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.p_white {
+    color: $color-white;
+
+    .link_decoration {
+        color: $color-white;
     }
 }
