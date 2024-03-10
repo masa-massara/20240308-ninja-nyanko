@@ -11,7 +11,7 @@ $color-gray-opacity: rgba(141, 141, 162, 0.58);
 $color-white: #ffffff;
 $color-white-opacity: rgba(255, 255, 255, 0.8);
 $neumorphism-shadow: 10px 10px 20px 0 $color-gray-opacity, -10px -10px 20px 0 $color-white-opacity;
-$neumorphism-shadow-inset: 4px 4px 8px 0 $color-gray-opacity, -4px -4px 8px 0 $color-white-opacity inset;
+$neumorphism-shadow-inset: inset 4px 4px 8px 0 $color-gray-opacity, inset -4px -4px 8px 0 $color-white-opacity;
 $neumorphism-shadow-hover: inset 4px 4px 8px 0 $color-gray-opacity, -4px -4px 8px 0 $color-white-opacity ;
 $gradient_yellow_red: #fff;
 
@@ -35,7 +35,7 @@ body {
     width: 100%;
     height: auto;
     min-height: 100vh;
-    max-width: 400px;
+    // max-width: 400px;
     margin: 0 auto;
     padding: 0;
     background-color: $color-gray;
@@ -50,19 +50,60 @@ body {
         width: 100vw;
         height: 100vh;
 
+        .divViewQuiz {
+            width: 100vw;
+            height: 100vh;
+
+
+        }
+
         background: linear-gradient(135deg, $color-yellow, $color-red);
 
-        .vertical-middle {
-            height: auto;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .background_gray_inset {
+            width: fit-content;
+            height: fit-content;
+            box-shadow: $neumorphism-shadow-inset;
+            background-color: $color-gray;
+            border-radius: 20px;
+            margin: 0 auto;
+
+            .middle {
+                width: 95vw;
+                height: 32vh;
+            }
+
+            .large {
+                justify-content: space-evenly;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 95vw;
+                height: 42vh;
+            }
+
+            
+
         }
 
         h1 {
             color: $color-white;
         }
+
+        .quizNum {
+            color: $color-white;
+            font-size: 24px;
+            margin-top: 0;
+            margin-bottom: 8px;
+            padding: 5vh 0 0 2vh;
+        }
+    }
+
+    .vertical-middle {
+        height: auto;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 
@@ -163,6 +204,10 @@ h1 {
 
     .red {
         background-color: $color-red;
+    }
+
+    .black{
+        background-color: $color-black;
     }
 }
 
@@ -408,7 +453,7 @@ h1 {
     }
 }
 
-.background_popip {
+.background_popup {
     margin-top: 20px; //kesu
     width: 370px;
     height: 180px;
@@ -502,7 +547,7 @@ h1 {
     align-items: center;
     display: flex;
     justify-content: center;
-    background-color: $color-black;
+    background-color: $color-gray-opacity;
 }
 
 .input_file {
@@ -634,3 +679,170 @@ label:hover {
         color: $color-white;
     }
 }
+
+.div_arbeit_parts {
+    width: fit-content;
+    height: fit-content;
+    padding: 10px 8px 10px 16px;
+    box-shadow: $neumorphism-shadow;
+    border-radius: 0 20px 20px 0;
+
+    h2{
+        width: 370px;
+    }
+    p{
+        width: 370px;
+
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 5;
+    }
+
+}
+
+.divTime {
+    display: flex;
+    color: $color-white;
+    font-size: 24px;
+    font-weight: bold;
+    align-items: center;
+    width: 360px;
+    padding: 0 15px 0 15px;
+}
+
+.divButtonQuiz {
+    width: fit-content;
+    height: fit-content;
+    margin: 0 auto;
+
+    .buttonQuiz {
+        border: solid 2px $color-gray-opacity;
+        border-radius: 20px;
+        box-shadow: 0 6px 0 0 $color-gray-opacity;
+        width: 300px;
+        height: 72px;
+
+        &:hover{
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 0 $color-gray-opacity;
+        }
+    }
+}
+
+.pQuestionNo{
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 4px;
+    padding-left: 8px;
+}
+
+.divResultFlex{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 16px;
+
+    
+}
+
+.background_gray_inset .min{
+    width: 70px;
+    height: 70px;
+    box-shadow: $neumorphism-shadow-inset;
+    background-color: $color-gray;
+    border-radius: 20px;
+    margin: 0 auto;
+    
+}
+
+.divQuizResult{
+    width: fit-content;
+    height: fit-content;
+    box-shadow: $neumorphism-shadow;
+    border-radius: 0 20px 20px 0;
+    padding: 10px 8px;
+
+
+    p{
+        width: 280px;
+        height: fit-content;
+        margin: 0 auto;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+        margin-bottom: 8px;
+    }
+}
+
+.pPercent{
+    width: fit-content;
+    font-size: 82px;
+    font-weight: bold;
+    margin: 0 auto;
+
+
+    span{
+        font-size: 56px;
+    }
+}
+
+.pComment{
+    font-weight: bold;
+    margin: 0 auto;
+    width: fit-content;
+    background: linear-gradient(135deg,$color-yellow,$color-red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.inputRangeQuizResult[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: $color-gray;
+    box-shadow: $neumorphism-shadow-inset;
+    height: 30px;
+    width: 300px;
+    margin: 0 auto;
+    display: block;
+    border-radius: 6px;
+  
+    &:focus,
+    &:active {
+      outline: none;
+    }
+  
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      cursor: pointer;
+      position: relative;
+      width: 22px;
+      height: 22px;
+      display: block;
+      background-color: #07be19;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+    }
+
+}
+
+.background_popup_manual{
+    width: 85vw;
+    height: fit-content;
+    border-radius: 20px;
+    padding: 20px 16px;
+    background-color: $color-white;
+}
+
+.pManualListComponent{
+    width: 80vw;
+    height: auto;
+    max-height: 80vh;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+
