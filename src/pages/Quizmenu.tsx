@@ -13,7 +13,7 @@ const Quizmenu = () => {
         <div className='add_manual'>
           <CreateQuiz stage={stage} />
           <div className="defaultButton" >
-            <button className="defaultButton_yellow">クイズスタート</button>
+            <button className="defaultButton_yellow">クイズスタートdayo</button>
           </div>
         </div>
       </div>
