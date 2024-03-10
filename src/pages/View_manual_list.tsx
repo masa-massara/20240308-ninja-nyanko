@@ -3,8 +3,6 @@ import {
   QueryDocumentSnapshot,
   SnapshotOptions,
   collection,
-  doc,
-  getDoc,
   getDocs,
 } from "firebase/firestore";
 
@@ -13,7 +11,7 @@ import Button_small_yellow from "../components/common/Button_small_yellow";
 import DefaultButton_red from "../components/common/DefaultButton_red";
 import Header from "../components/common/Header";
 import Tabs_manual_list from "../components/common/Tabs_manual_list";
-import { auth, db } from "../context/firebase";
+import { db } from "../context/firebase";
 import { Manual } from "../types/types";
 import { useEffect, useState } from "react";
 
@@ -43,8 +41,6 @@ const manualConverter = {
 
 const View_manual_list = () => {
   const [allTasks, setAllTasks] = useState<Manual[]>([]);
-  const [judgePosition, setJudgePosition] = useState("");
-  const [positons, setPositiosn] = useState<(string | undefined)[]>([]);
 
   // 結果を格納する Map構造を定義する
   const positionMap = new Map<string, Array<{ task: string; title: string }>>();
@@ -81,16 +77,11 @@ const View_manual_list = () => {
         const tasks = await fetchTasks(db, uid);
 
         console.log(tasks);
-        
-        
 
-        setAllTasks(
-            tasks
-        );
+        setAllTasks(tasks);
       };
       f();
     }
-
   }, []);
 
   const fetchTasks = async (db: Firestore, uid: string): Promise<Manual[]> => {
@@ -123,6 +114,10 @@ const View_manual_list = () => {
     setAllTasks(tasks);
     return tasks;
   };
+  const users = fetchUsers(db, uid);
+  console.log("====================================");
+  console.log(users);
+  console.log("====================================");
 
   return (
     <>
