@@ -5,7 +5,7 @@ const Droplist_gyousyu = () => {
         <option>飲食店</option>
         <option>カラオケ</option>
         <option>居酒屋</option>
-        <option>本屋</option>
+        <option>キッチン</option>
         <option>レジ</option>
         <option>キッチン</option>
         <option>レジ</option>
