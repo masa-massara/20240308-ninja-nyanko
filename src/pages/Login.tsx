@@ -1,15 +1,18 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../context/firebase";
 import { Link } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import "./../scss/style.scss";
+import { AuthContext } from "../context/AuthContext";
 
 const Login = () => {
   const navigate = useNavigate();
 
   const [err, setErr] = useState(false);
+  const userContext = useContext(AuthContext)
+
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -22,7 +25,6 @@ const Login = () => {
     try {
       const user = await signInWithEmailAndPassword(auth, email, password);
       const userId = user.user.uid;
-
       const docRef = doc(db, "users", userId);
       const docSnap = await getDoc(docRef);
 

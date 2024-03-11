@@ -12,6 +12,7 @@ import { createContext, useState } from "react";
 import AddPosition from "./pages/AddPosition";
 import View_add_manual_third from "./pages/View_add_manual_third";
 import View_manual_list from "./pages/View_manual_list";
+import { AuthContextProvider } from "./context/AuthContext";
 
 type PlaceContextType = {
   place: string;
@@ -56,6 +57,7 @@ function App() {
           setJson,
         }}
       >
+        <AuthContextProvider>
         <div>
           {/* 各ページへのルート設定 */}
           <BrowserRouter>
@@ -80,6 +82,7 @@ function App() {
             </Routes>
           </BrowserRouter>
         </div>
+        </AuthContextProvider>
       </PlaceContext.Provider>
     </>
   );

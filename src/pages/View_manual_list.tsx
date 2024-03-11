@@ -11,12 +11,10 @@ import Button_small_yellow from "../components/common/Button_small_yellow";
 import DefaultButton_red from "../components/common/DefaultButton_red";
 import Header from "../components/common/Header";
 import Tabs_manual_list from "../components/common/Tabs_manual_list";
-import { db } from "../context/firebase";
+import { auth, db } from "../context/firebase";
 import { Manual } from "../types/types";
-import { useEffect, useState } from "react";
-
-const uid = "fwxQrbCqLYRMPWSKRESz2tUWGvP2";
-
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../context/AuthContext";
 const manualConverter = {
   toFirestore: (manual: Manual) => {
     return {
@@ -41,7 +39,8 @@ const manualConverter = {
 
 const View_manual_list = () => {
   const [allTasks, setAllTasks] = useState<Manual[]>([]);
-
+  const currentUser = useContext(AuthContext)
+  console.log(currentUser)
   // 結果を格納する Map構造を定義する
   const positionMap = new Map<string, Array<{ task: string; title: string }>>();
 
@@ -72,9 +71,32 @@ const View_manual_list = () => {
   }
 
   useEffect(() => {
-    if (uid) {
+
+    const fetchTasks = async (db: Firestore, uid?: string): Promise<Manual[]> => {
+      console.log(uid);
+
+      const tasksCollectionRef = collection(
+        db,
+        `users/${uid}/manual`
+      ).withConverter(manualConverter);
+      console.log(tasksCollectionRef)
+      const querySnapshot = await getDocs(tasksCollectionRef);
+      console.log(querySnapshot.docs)
+      const tasks = querySnapshot.docs.map((m) => {
+
+
+        return m.data();
+
+      });
+      console.log(tasks);
+      return tasks;
+    };
+
+    if (currentUser?.uid) {
       const f = async () => {
-        const tasks = await fetchTasks(db, uid);
+        // reduce count to request firebase for rate limit
+        // if (allTasks.length > 0) return
+        const tasks = await fetchTasks(db, currentUser?.uid);
 
         console.log(tasks);
 
@@ -82,42 +104,7 @@ const View_manual_list = () => {
       };
       f();
     }
-  }, []);
-
-  const fetchTasks = async (db: Firestore, uid: string): Promise<Manual[]> => {
-    const tasksCollectionRef = collection(
-      db,
-      `users/${uid}/manual`
-    ).withConverter(manualConverter);
-    const querySnapshot = await getDocs(tasksCollectionRef);
-    const tasks = querySnapshot.docs.map((m) => {
-      return m.data();
-    });
-    setAllTasks(tasks);
-    console.log(tasks);
-
-    return tasks;
-  };
-  const keyPanelComponents: React.ReactNode[] = [];
-  for (const key of positionMap.keys()) {
-    keyPanelComponents.push(<div>{key}</div>);
-  }
-
-  const fetchUsers = async (db: Firestore, uid: string): Promise<Manual[]> => {
-    const tasksCollectionRef = collection(db, `users`).withConverter(
-      manualConverter
-    );
-    const querySnapshot = await getDocs(tasksCollectionRef);
-    const tasks = querySnapshot.docs.map((m) => {
-      return m.data();
-    });
-    setAllTasks(tasks);
-    return tasks;
-  };
-  const users = fetchUsers(db, uid);
-  console.log("====================================");
-  console.log(users);
-  console.log("====================================");
+  }, [currentUser?.uid]);
 
   return (
     <>
@@ -126,9 +113,9 @@ const View_manual_list = () => {
         <Button_small_blue />
       </div>
       <DefaultButton_red />
-      {keyPanelComponents.map((component) => {
+      {/* {keyPanelComponents.map((component) => {
         return component;
-      })}
+      })} */}
       <Tabs_manual_list positionMap={positionMap} />
       <Button_small_yellow />
     </>
