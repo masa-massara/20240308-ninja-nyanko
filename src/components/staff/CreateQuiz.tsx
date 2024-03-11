@@ -1,22 +1,29 @@
-import { FC } from "react"
+import { FC } from "react";
 
 type Props = {
-    stage: string[],
-}
+  stage: string[];
+};
 
-const CreateQuiz:FC<Props> = ({stage}) => {
+const CreateQuiz: FC<Props> = ({ stage }) => {
   return (
-    <div>
+    <div className="background_gray">
+      <div className="middle">
         <h1>マニュアルクイズ</h1>
         <p>ステージを選択してください</p>
-        <select name="stage">
+        <div className="divSelect">
+          <select name="stage" className="select_middle">
             {stage.map((work) => {
-                return <option value={work}>{work}</option>
+              return <option value={work}>{work}</option>;
             })}
-        </select>
-        <button>クイズスタート</button>
-    </div>
-  )
-}
+          </select>
+        </div>
 
-export default CreateQuiz
+        <div className="defaultButton">
+          <button className="defaultButton_yellow">マニュアル閲覧</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CreateQuiz;

@@ -10,7 +10,7 @@ const Component_add_manual = (props: props) => {
     return (
         <>
 
-            <div className="manual_parts">
+            <div>
                 {props.content?.map((a)=>{
               return  <DivManuelParts task={a}/>
             })}

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useRoutes } from "react-router-dom";
 import { FC, useContext, useState } from "react";
 import { PlaceContext } from "../../App";
 import { OpenAxios } from "../common/OpenAxios";
@@ -13,6 +13,9 @@ type Props = {
 const CreateMenu: FC<Props> = ({ worksname, index, works, link }) => {
   const context = useContext(PlaceContext);
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
+
+
   const { setJson } = useContext(PlaceContext);
   const aihandle = async () => {
     const res =
@@ -23,10 +26,10 @@ const CreateMenu: FC<Props> = ({ worksname, index, works, link }) => {
     task:(中身)
     を1オブジェクトとして、返答をJSON形式で崩さず5オブジェクト出力してください。
     `);
-    // console.log(JSON.parse(res.choices[0].message.content));
+    console.log("JSON.parse(res.choices[0].message.content)",JSON.parse(res.choices[0].message.content));
     setJson(JSON.parse(res.choices[0].message.content));
     setIsLoading(true);
-    console.log(isLoading);
+    navigate("/works/position/addposition");
   };
 
   return (
@@ -49,11 +52,9 @@ const CreateMenu: FC<Props> = ({ worksname, index, works, link }) => {
         </div>
 
         <div className="button_next">
-          <Link to={link}>
             <button className="next" onClick={aihandle}>
               次へ
             </button>
-          </Link>
         </div>
       </div>
     </div>

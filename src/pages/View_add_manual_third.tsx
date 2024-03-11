@@ -28,21 +28,20 @@ const View_add_manual_third = () => {
   const { position } = useContext(PlaceContext);
 
   useEffect(() => {
-
-    console.log("Object.entries(json)", Object.entries(json));
+    
+    const foo = Object.entries<TasksObject>(json).map(([, value]) => {
+      return {
+        position: value.position,
+        title: value.title,
+        task: value.task,
+      };
+    })
+    console.log("foo",foo)
     // 値を入れた
-    setGPTresponse(
-      Object.entries<TasksObject>(json).map(([, value]) => {
-        return {
-          position: value.position,
-          title: value.title,
-          task: value.task,
-        };
-      })
+    setGPTresponse(foo
+      
     );
   }, [json]);
-
-  console.log("GPTresponse", GPTresponse);
 
   // Firestoreにタスクを保存する関数
   const saveTasksToFirestore = async (uid: string) => {
@@ -58,6 +57,11 @@ const View_add_manual_third = () => {
     }
   };
 
+
+  if(GPTresponse == null){
+    return null
+  }
+  
   return (
     <>
       <Header />
