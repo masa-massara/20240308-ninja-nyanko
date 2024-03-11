@@ -11,7 +11,9 @@ const Component_add_manual = (props: props) => {
         <>
 
             <div className="manual_parts">
-                <DivManuelParts />
+                {props.content?.map((a)=>{
+              return  <DivManuelParts task={a}/>
+            })}
                 <Button_delete />
             </div>
 

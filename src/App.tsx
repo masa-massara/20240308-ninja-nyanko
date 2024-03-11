@@ -65,10 +65,10 @@ function App() {
               <Route path="/" element={<Login />} />
               <Route path="/works" element={<SelectWorks />} />
               <Route path="/works/position" element={<SelectPosition />} />
-              <Route
+              {/* <Route
                 path="/works/position/addposition"
                 element={<AddPosition position="レジ" />}
-              />
+              /> */}
               <Route path="/checkcreate" element={<CheckCreate />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
@@ -76,7 +76,7 @@ function App() {
               <Route path="/arbeit/selectquiz" element={<Quizmenu />} />
               <Route path="/company" element={<TopPageCompany />} />
               <Route path="/*" element={<NotFound />} />
-              <Route path="/thirdl" element={<View_add_manual_third />} />
+              <Route path="/works/position/addposition" element={<View_add_manual_third />} />
               <Route path="/list" element={<View_manual_list />} />
             </Routes>
           </BrowserRouter>
