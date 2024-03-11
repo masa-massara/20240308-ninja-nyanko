@@ -45,20 +45,22 @@ const Register = () => {
       }
     } catch (error) {
       if (error instanceof FirebaseError) {
-        let message = '登録中にエラーが発生しました。しばらくしてから再試行してください。';
+        let message =
+          "登録中にエラーが発生しました。しばらくしてから再試行してください。";
         switch (error.code) {
-          case 'auth/email-already-in-use':
-            message = 'このメールアドレスは既に使用されています。';
+          case "auth/email-already-in-use":
+            message = "このメールアドレスは既に使用されています。";
             break;
-          case 'auth/weak-password':
-            message = 'パスワードが弱すぎます。もっと複雑なパスワードを設定してください。';
+          case "auth/weak-password":
+            message =
+              "パスワードが弱すぎます。もっと複雑なパスワードを設定してください。";
             break;
         }
         setErrorMessage(message);
       } else {
         // Firebaseのエラーではない場合の処理
-        console.error('エラーが発生しました:', error);
-        setErrorMessage('予期せぬエラーが発生しました。');
+        console.error("エラーが発生しました:", error);
+        setErrorMessage("予期せぬエラーが発生しました。");
       }
     }
   };
@@ -71,31 +73,50 @@ const Register = () => {
             <h1 className="title">登録</h1>
             <div className="textarea_input">
               <form onSubmit={handleSubmit} className="form_input">
-                <input name="username" type="text" placeholder="Username" className="small" />
-                <input name="email" type="email" placeholder="Email" className="small" />
-                <input name="password" type="password" placeholder="Password" className="small" />
+                <input
+                  name="username"
+                  type="text"
+                  placeholder="Username"
+                  className="small"
+                />
+                <input
+                  name="email"
+                  type="email"
+                  placeholder="Email"
+                  className="small"
+                />
+                <input
+                  name="password"
+                  type="password"
+                  placeholder="Password"
+                  className="small"
+                />
                 <p className="p_white">あなたの役職は？</p>
-                <input
-                  type="radio"
-                  name="position-select-button"
-                  value="company"
-                  checked
-                ></input>
-                <label>社員</label>
-                <input
-                  type="radio"
-                  name="position-select-button"
-                  value="arbeit"
-                ></input>
-                <label>アルバイト</label>
+                <div className="divRadio">
+                  <input
+                    type="radio"
+                    name="position-select-button"
+                    value="company"
+                    checked
+                  ></input>
+                  <label>社員</label>
+                  <input
+                    type="radio"
+                    name="position-select-button"
+                    value="arbeit"
+                  ></input>
+                  <label>アルバイト</label>
+                </div>
                 <button className="button_login">新規登録をする</button>
-                {errorMessage && <span className="error">{errorMessage}</span>}
+                {errorMessage && <span className="error_message">{errorMessage}</span>}
               </form>
             </div>
             <p className="p_white">
               Already have an account?&ensp;
               <span className="login">
-                <Link to="/login" className="link_decoration">ログイン</Link>
+                <Link to="/login" className="link_decoration">
+                  ログイン
+                </Link>
               </span>
             </p>
             {/* <Voice></Voice> */}
