@@ -13,7 +13,7 @@ const View_add_manual_first = () => {
 
         <Droplist_gyousyu />
         <Textarea_input_small />
-        <Button_next />
+        <Button_next urlSuffix="/second"/>
       </div>
     </div>
   );

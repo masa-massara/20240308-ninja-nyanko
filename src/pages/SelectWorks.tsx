@@ -46,7 +46,7 @@ const SelectWorks = () => {
         </div>
 
         <div className="button_next">
-          <Link to="/position">
+          <Link to="/works/position">
             <button className="next">
               次へ
             </button>
