@@ -13,7 +13,6 @@ import AddPosition from "./pages/AddPosition";
 import View_add_manual_third from "./pages/View_add_manual_third";
 import View_manual_list from "./pages/View_manual_list";
 import { AuthContextProvider } from "./context/AuthContext";
-import View_add_manual_second from "./pages/View_add_manual_second";
 
 type PlaceContextType = {
   place: string;
@@ -77,9 +76,8 @@ function App() {
               <Route path="/arbeit/selectquiz" element={<Quizmenu />} />
               <Route path="/company" element={<TopPageCompany />} />
               <Route path="/*" element={<NotFound />} />
-              <Route path="/works/position/addposition" element={<View_add_manual_third />} />
+              <Route path="/thirdl" element={<View_add_manual_third />} />
               <Route path="/list" element={<View_manual_list />} />
-              <Route path="/second" element={<View_add_manual_second />} />
             </Routes>
           </BrowserRouter>
         </div>
