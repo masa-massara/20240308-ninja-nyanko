@@ -9,12 +9,10 @@ const Quizmenu = () => {
         "その他",
       ];
       return(
-      <div className='center_center'>
+      <div className='vertical-middle'>
         <div className='add_manual'>
           <CreateQuiz stage={stage} />
-          <div className="defaultButton" >
-            <button className="defaultButton_yellow">クイズスタートdayo</button>
-          </div>
+          
         </div>
       </div>
       );

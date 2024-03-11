@@ -76,7 +76,6 @@ function App() {
               <Route path="/*" element={<NotFound />} />
               <Route path="/thirdl" element={<View_add_manual_third />} />
               <Route path="/list" element={<View_manual_list />} />
-
             </Routes>
           </BrowserRouter>
         </div>
