@@ -9,7 +9,6 @@ import TopPageArbeit from "./pages/TopPageArbeit";
 import TopPageCompany from "./pages/TopPageCompany";
 import Quizmenu from "./pages/Quizmenu";
 import { createContext, useState } from "react";
-import AddPosition from "./pages/AddPosition";
 import View_add_manual_third from "./pages/View_add_manual_third";
 import View_manual_list from "./pages/View_manual_list";
 import { AuthContextProvider } from "./context/AuthContext";

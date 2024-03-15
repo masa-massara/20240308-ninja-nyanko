@@ -1,5 +1,5 @@
-import { Link, useNavigate, useRoutes } from "react-router-dom";
-import { FC, useContext, useState } from "react";
+import {  useNavigate,  } from "react-router-dom";
+import { FC, useContext } from "react";
 import { PlaceContext } from "../../App";
 import { OpenAxios } from "../common/OpenAxios";
 
@@ -10,9 +10,8 @@ type Props = {
   works: string;
 };
 
-const CreateMenu: FC<Props> = ({ worksname, index, works, link }) => {
+const CreateMenu: FC<Props> = ({ worksname, index, works }) => {
   const context = useContext(PlaceContext);
-  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
 
@@ -28,7 +27,6 @@ const CreateMenu: FC<Props> = ({ worksname, index, works, link }) => {
     `);
     console.log("JSON.parse(res.choices[0].message.content)",JSON.parse(res.choices[0].message.content));
     setJson(JSON.parse(res.choices[0].message.content));
-    setIsLoading(true);
     navigate("/works/position/addposition");
   };
 

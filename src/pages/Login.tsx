@@ -1,18 +1,15 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../context/firebase";
 import { Link } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import "./../scss/style.scss";
-import { AuthContext } from "../context/AuthContext";
 
 const Login = () => {
   const navigate = useNavigate();
 
   const [err, setErr] = useState(false);
-  const userContext = useContext(AuthContext)
-
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -55,15 +52,33 @@ const Login = () => {
 
             <div className="textarea_input">
               <form onSubmit={handleSubmit} className="form_input">
-                <input type="email" placeholder="Email" name="email" className="small" />
-                <input type="password" placeholder="Password" name="password" className="small" />
+                <input
+                  type="email"
+                  placeholder="Email"
+                  name="email"
+                  className="small"
+                />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+                  className="small"
+                />
                 <button className="button_login">ログインする</button>
-                {err && <span className="error_message">エラーが発生しました</span>}
+                {err && (
+                  <span className="error_message">エラーが発生しました</span>
+                )}
               </form>
             </div>
-            <p className="p_white">アカウントを持っていませんか？ <Link to={"/register"} className="link_decoration">登録</Link></p>
+            <p className="p_white">
+              アカウントを持っていませんか？{" "}
+              <Link to={"/register"} className="link_decoration">
+                登録
+              </Link>
+            </p>
           </div>
-        </div>      </div>
+        </div>{" "}
+      </div>
     </div>
   );
 };

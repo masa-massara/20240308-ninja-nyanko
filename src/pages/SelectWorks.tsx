@@ -1,10 +1,8 @@
-import React, { useEffect } from "react";
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { PlaceContext } from "../App";
 
 const SelectWorks = () => {
-  
   const industry = ["飲食店", "サービス業", "小売業", "製造業", "IT業"];
   const [selectedWorks] = useState(industry[0]); // 初期値をリストの最初の要素に設定
   const { setIndustry } = useContext(PlaceContext);

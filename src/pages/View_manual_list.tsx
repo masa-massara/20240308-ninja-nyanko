@@ -11,7 +11,7 @@ import Button_small_yellow from "../components/common/Button_small_yellow";
 import DefaultButton_red from "../components/common/DefaultButton_red";
 import Header from "../components/common/Header";
 import Tabs_manual_list from "../components/common/Tabs_manual_list";
-import { auth, db } from "../context/firebase";
+import { db } from "../context/firebase";
 import { Manual } from "../types/types";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";

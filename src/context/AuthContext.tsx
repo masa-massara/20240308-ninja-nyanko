@@ -1,5 +1,4 @@
 import  { FC, ReactNode, createContext, useEffect, useState } from "react";
-import { auth } from "../context/firebase";
 import { User, getAuth, onAuthStateChanged } from "firebase/auth";
 
 export type ContextType = string;
